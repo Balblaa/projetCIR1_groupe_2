@@ -6,4 +6,11 @@
 #include <string.h>
 #include <stdbool.h>
 
+
+
+struct Film{
+    char* title;
+    char*
+};
+
 #endif //C_FILM_H
