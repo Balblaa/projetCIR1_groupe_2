@@ -2,7 +2,7 @@ function research(){
     let authorName=document.getElementById("realisateur");
     let dureeMovie=document.getElementById("duree");
     if(authorName.length!==0){
-        writeFile('formrequest','dinero');
+        writeFile('research','dinero');
     }
     if(dureeMovie.length!==0){
         writeFile('formRequest','dinero');

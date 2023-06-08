@@ -23,11 +23,11 @@
         <div id="body">
          <div id="column">
             <div id="search">
-                <form id="formRequest">
+                <form id="research">
                     <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">
-                    <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
+                    <!-- *<input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form"> -->
                     <div id="button">
-                        <a onclick="writeFile('formRequest','dinero')"href="Recherche.html" id="button" >Confirmer</a>
+                        <a href="Recherche.html" id="button" ><input type="submit" onclick="research()" id="go" value="Confirmer"></a>
                     </div>
                 </form>
             </div>
