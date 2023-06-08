@@ -1,6 +1,8 @@
-body{
-    background-image: "../img/cinema.jpg";
+body { 
+    background-image: url("../img/cinema.jpg");
+    background-size: cover;
 }
+
 
 #button{
     background-color: #E40C14;
@@ -9,4 +11,13 @@ body{
     margin: 8px 0;
     border-radius: 20px;
     text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    text-align: center;
 }
