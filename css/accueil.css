@@ -1,0 +1,26 @@
+body{
+    background-color : #222222;
+}
+
+#body{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    background-color: #333333;
+    color: white;
+    padding: 100px;
+    text-align: center;
+    margin: 10px;
+}
+
+#button{
+    background-color: #E40C14;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    width: 400px;
+    height: 50px;
+    text-align: center;
+}
