@@ -1,0 +1,12 @@
+body{
+    background-image: "../img/cinema.jpg";
+}
+
+#button{
+    background-color: #E40C14;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 20px;
+    text-decoration: none;
+}
