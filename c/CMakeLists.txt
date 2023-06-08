@@ -3,4 +3,4 @@ project(c C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(c main.c)
+add_executable(c main.c filmotheque.h filmotheque.c bankRealisateur.h bankRealisateur.h bankRealisateur.c film.h film.c)

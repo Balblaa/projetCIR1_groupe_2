@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/c.dir/main.c.o"
+  "CMakeFiles/c.dir/filmotheque.c.o"
+  "CMakeFiles/c.dir/bankRealisateur.c.o"
+  "CMakeFiles/c.dir/film.c.o"
   "c.pdb"
   "c"
 )

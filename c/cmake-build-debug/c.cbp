@@ -78,6 +78,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/bankRealisateur.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/bankRealisateur.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.h">
+			<Option target="c"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/main.c">
 			<Option target="c"/>
 		</Unit>

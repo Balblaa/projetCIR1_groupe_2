@@ -123,6 +123,87 @@ c/fast:
 	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/build
 .PHONY : c/fast
 
+bankRealisateur.o: bankRealisateur.c.o
+
+.PHONY : bankRealisateur.o
+
+# target to build an object file
+bankRealisateur.c.o:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/bankRealisateur.c.o
+.PHONY : bankRealisateur.c.o
+
+bankRealisateur.i: bankRealisateur.c.i
+
+.PHONY : bankRealisateur.i
+
+# target to preprocess a source file
+bankRealisateur.c.i:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/bankRealisateur.c.i
+.PHONY : bankRealisateur.c.i
+
+bankRealisateur.s: bankRealisateur.c.s
+
+.PHONY : bankRealisateur.s
+
+# target to generate assembly for a file
+bankRealisateur.c.s:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/bankRealisateur.c.s
+.PHONY : bankRealisateur.c.s
+
+film.o: film.c.o
+
+.PHONY : film.o
+
+# target to build an object file
+film.c.o:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/film.c.o
+.PHONY : film.c.o
+
+film.i: film.c.i
+
+.PHONY : film.i
+
+# target to preprocess a source file
+film.c.i:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/film.c.i
+.PHONY : film.c.i
+
+film.s: film.c.s
+
+.PHONY : film.s
+
+# target to generate assembly for a file
+film.c.s:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/film.c.s
+.PHONY : film.c.s
+
+filmotheque.o: filmotheque.c.o
+
+.PHONY : filmotheque.o
+
+# target to build an object file
+filmotheque.c.o:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/filmotheque.c.o
+.PHONY : filmotheque.c.o
+
+filmotheque.i: filmotheque.c.i
+
+.PHONY : filmotheque.i
+
+# target to preprocess a source file
+filmotheque.c.i:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/filmotheque.c.i
+.PHONY : filmotheque.c.i
+
+filmotheque.s: filmotheque.c.s
+
+.PHONY : filmotheque.s
+
+# target to generate assembly for a file
+filmotheque.c.s:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/filmotheque.c.s
+.PHONY : filmotheque.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +240,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... c"
+	@echo "... bankRealisateur.o"
+	@echo "... bankRealisateur.i"
+	@echo "... bankRealisateur.s"
+	@echo "... film.o"
+	@echo "... film.i"
+	@echo "... film.s"
+	@echo "... filmotheque.o"
+	@echo "... filmotheque.i"
+	@echo "... filmotheque.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
