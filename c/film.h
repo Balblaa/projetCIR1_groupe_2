@@ -43,7 +43,10 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]);
 // Suprime le premier film
 struct Film* deleteFirst(struct Film* f);
 
+// Suprime un film par son titre
+struct Film* deleteFilmByTitle(struct Film* f, char* title[MAXTITLE]);
+
 // Suprime tous les films
-void deleteFilm(struct Film** f);
+void deleteFilms(struct Film** f);
 
 #endif //C_FILM_H
