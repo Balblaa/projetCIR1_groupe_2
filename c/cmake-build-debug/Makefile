@@ -123,33 +123,6 @@ c/fast:
 	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/build
 .PHONY : c/fast
 
-bankRealisateur.o: bankRealisateur.c.o
-
-.PHONY : bankRealisateur.o
-
-# target to build an object file
-bankRealisateur.c.o:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/bankRealisateur.c.o
-.PHONY : bankRealisateur.c.o
-
-bankRealisateur.i: bankRealisateur.c.i
-
-.PHONY : bankRealisateur.i
-
-# target to preprocess a source file
-bankRealisateur.c.i:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/bankRealisateur.c.i
-.PHONY : bankRealisateur.c.i
-
-bankRealisateur.s: bankRealisateur.c.s
-
-.PHONY : bankRealisateur.s
-
-# target to generate assembly for a file
-bankRealisateur.c.s:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/bankRealisateur.c.s
-.PHONY : bankRealisateur.c.s
-
 film.o: film.c.o
 
 .PHONY : film.o
@@ -231,6 +204,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/main.c.s
 .PHONY : main.c.s
 
+realisateur.o: realisateur.c.o
+
+.PHONY : realisateur.o
+
+# target to build an object file
+realisateur.c.o:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/realisateur.c.o
+.PHONY : realisateur.c.o
+
+realisateur.i: realisateur.c.i
+
+.PHONY : realisateur.i
+
+# target to preprocess a source file
+realisateur.c.i:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/realisateur.c.i
+.PHONY : realisateur.c.i
+
+realisateur.s: realisateur.c.s
+
+.PHONY : realisateur.s
+
+# target to generate assembly for a file
+realisateur.c.s:
+	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/realisateur.c.s
+.PHONY : realisateur.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,9 +240,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... c"
-	@echo "... bankRealisateur.o"
-	@echo "... bankRealisateur.i"
-	@echo "... bankRealisateur.s"
 	@echo "... film.o"
 	@echo "... film.i"
 	@echo "... film.s"
@@ -252,6 +249,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... realisateur.o"
+	@echo "... realisateur.i"
+	@echo "... realisateur.s"
 .PHONY : help
 
 

@@ -8,6 +8,8 @@
 
 #include "film.h"
 
-struct Realisateur
+struct Realisateur{
+
+};
 
 #endif //C_BANKREALISATEUR_H
