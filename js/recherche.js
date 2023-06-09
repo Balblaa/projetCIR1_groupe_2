@@ -33,6 +33,7 @@ function writeFile(id_form,func) {
 
     text1.submit();
 }
+
 function validateForm() {
     //Récupérer les valeurs des champs
     let realisateur = document.getElementById("realisateur").value;
