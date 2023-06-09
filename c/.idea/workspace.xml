@@ -20,9 +20,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="test">
+    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="fin de film">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmotheque.c" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realisateur.h" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmotheque.h" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +37,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;
@@ -96,6 +100,14 @@
       <workItem from="1686231659670" duration="1000" />
       <workItem from="1686294051014" duration="7634000" />
     </task>
+    <task id="LOCAL-00001" summary="fin de film">
+      <created>1686303808802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686303808802</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,5 +123,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fin de film" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin de film" />
   </component>
 </project>
