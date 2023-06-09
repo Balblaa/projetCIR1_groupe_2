@@ -35,7 +35,7 @@ void getRealisateurProductif(struct Filmotheque* ft);
 bool isFilmothequeEmpty(struct Filmotheque* ft);
 
 //
-bool insertRealisateur(struct Filmotheque* ft,struct realisateur* r)
+bool insertRealisateur(struct Filmotheque* ft,struct realisateur* r);
 
 //affiche la structure
 void printFilmotheque(struct Filmotheque* ft);
