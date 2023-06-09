@@ -16,9 +16,10 @@ struct Filmotheque{
     int plusLongFilm;
 };
 //operation de création
-struct Filmotheque* createemptyFilmotheque(struct Filmotheque* ft);
+struct Filmotheque* createemptyFilmotheque();
 bool isFilmothequeEmpty(struct Filmotheque* ft);
 //opération d'insertion des éléments de la base de donnée.
+struct Filmotheque* buildFilmothequeFromDico(char* nomfichier);
 bool insertRealisateur(struct Filmotheque* ft,struct realisateur* r);
 //affiche la structure
 void printFilmotheque(struct Filmotheque* ft);
