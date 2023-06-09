@@ -13,7 +13,7 @@ struct Realisateur{
     bool isAuthor;
     struct Film;
 };
-struct realisateur* createEmptyRealisateur(struct Realisateur* r);
+struct realisateur* createEmptyRealisateur();
 bool isRealisateurEmpty(struct Realisateur* r);
 bool insertFilm(struct Realisateur* r,struct Film* f);
 bool isAuthor(struct Realisateur* r);
