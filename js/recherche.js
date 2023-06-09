@@ -33,7 +33,6 @@ function writeFile(id_form,func) {
 
     text1.submit();
 }
-
 function validateForm() {
     //Récupérer les valeurs des champs
     let realisateur = document.getElementById("realisateur").value;
@@ -68,7 +67,7 @@ function validateForm() {
         dureeError.innerHTML = "La duree doit être en minutes et uniquement composé de chiffres";
     }
 
-    if (isRealisateurValid && isDureeValid) {
+    if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "")) {
         submitBtn.disabled = false;
         submitBtn.classList.remove("btn-notvalid");
     } else {
