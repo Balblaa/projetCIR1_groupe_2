@@ -28,5 +28,5 @@ void getPlusLongFilm(struct Filmotheque* ft);
 void getRealisateurProductif(struct Filmotheque* ft);
 bool isAuthorExist(struct Filmotheque* ft,char* author);
 //supprimer la structure
-void deleteFilmothque(struct Filmotheque* ft);
+void deleteFilmothque(struct Filmotheque* ft)
 #endif //C_FILMOTHEQUE_H
