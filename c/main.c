@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include "film.h"
+
 int main() {
 
 }

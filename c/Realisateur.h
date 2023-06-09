@@ -8,14 +8,16 @@
 
 #include "film.h"
 
+#define NBLETTRE 27
+
 struct Realisateur{
-    struct Realisateur* alphabetSuivant[26];
+    struct Realisateur* lettre[NBLETTRE];
     bool isRealisateur;
-    struct Film* f;
+    struct Film* film;
 };
 
-//  Créer le premier noeud
-struct realisateur* createEmptyRealisateur();
+//  Créer le premier noeud de réalisateur
+struct Realisateur* createEmptyRealisateur();
 
 // rajoute un film au réalisateur donné
 void insertFilm(struct Realisateur* r, struct Film* f);
