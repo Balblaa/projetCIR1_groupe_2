@@ -88,7 +88,7 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
 // Affiche les film a la suite
 void printFilm(struct Film* f){
     if (f == NULL) {
-        printf("NULL");
+        printf("NULL\n");
         return;
     }
     struct Film* iter = f;
@@ -97,7 +97,7 @@ void printFilm(struct Film* f){
         printf("%s;%s;%d -> ", iter->title, iter->type, iter->time);
         iter = iter->next;
     }
-    printf("%s;%s;%d -> NULL", iter->title, iter->type, iter->time);
+    printf("%s;%s;%d -> NULL\n", iter->title, iter->type, iter->time);
 }
 
 // Suprime le premier film
