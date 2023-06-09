@@ -102,7 +102,15 @@ function readFileByName(fileName){
     return xhr.responseText;
 }
 
+function insertCell(row, cellNumber, text){
+    let cell = row.insertCell(cellNumber);
+    cell.innerHTML = text;
+}
 
+function insertRow(table, rowNumber){
+    let row = table.insertRow(rowNumber);
+    return row;
+}
 
 //fonction qui affiche les films dans un tableau
 function printMovies(){
@@ -121,7 +129,7 @@ function printMovies(){
         let movie = moviesArray[i].split(";");
         
         // Insertion d'une nouvelle ligne dans le tableau HTML
-        let row = table.insertRow(i+1);
+        let row = table.insertRow("table", i+1);
         
         // Insertion de deux cellules dans la nouvelle ligne pour afficher les données du film
         let cell1 = row.insertCell(0);
