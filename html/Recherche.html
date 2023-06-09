@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="../css/navbar.css">
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/recherche.css">
+        <script src="../js/script.js" defer></script>
+        <script src="../js/recherche.js" defer></script>
     </head>
     <header>
         <div class="nav">
@@ -24,10 +26,17 @@
          <div id="column">
             <div id="search">
                 <form id="research">
+                    <div>
+                        <a id="realisateurError"></a>
+                    </div>
                     <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">
-                    <!-- *<input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form"> -->
+                    
+                    <div>
+                        <a id="dureeError"></a>
+                    </div>
+                    <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
                     <div id="button">
-                        <a href="Recherche.html" id="button" ><input type="submit" onclick="research()" id="go" value="Confirmer"></a>
+                        <input type="submit" onclick="research()" id="go" value="Confirmer" class="button">
                     </div>
                 </form>
             </div>

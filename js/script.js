@@ -7,6 +7,9 @@ function research(){
     if(dureeMovie.length!==0){
         writeFile('formRequest','dinero');
     }
+    if(authorName.length===0 && dureeMovie.length===0){
+        writeFile('coucou','fonction qui affiche les films');
+    }
 }
 function writeFile(id_form,func) {
 
@@ -27,5 +30,5 @@ function writeFile(id_form,func) {
     element.click();
     document.body.removeChild(element);
 
-   // text1.submit();
+    text1.submit();
 }
