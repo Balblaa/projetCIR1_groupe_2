@@ -11,3 +11,6 @@ struct Filmotheque* createemptyFilmotheque(){
     }
     return ft;
 }
+bool isFilmothequeEmpty(struct Filmotheque* ft){
+
+}
