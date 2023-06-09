@@ -102,14 +102,13 @@ function readFileByName(fileName){
     return xhr.responseText;
 }
 
-let myResults = readFile();
-console.log(myResults);
+
 
 //fonction qui affiche les films dans un tableau
 function printMovies(){
     // Lecture des films à partir d'une source externe en utilisant la fonction readFile()
     let movies = readFile();
-    
+    console.log(movies);
     // Division des données des films en un tableau en utilisant le saut de ligne comme séparateur
     let moviesArray = movies.split("\n");
     
@@ -133,4 +132,4 @@ function printMovies(){
         cell2.innerHTML = movie[1];
     }
 }
-
+printMovies();
