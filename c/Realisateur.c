@@ -13,6 +13,11 @@ struct Realisateur* createEmptyRealisateur(){
     return r;
 }
 
+// Renvoie le la liste de film d'un realisateur
+struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
+
+}
+
 // rajoute un film au réalisateur donné
 void insertFilm(struct Realisateur* r, struct Film* f);
 
@@ -21,9 +26,6 @@ void deleteFilm(struct Realisateur* r, char* realisateur, char* title[MAXTITLE])
 
 // Renvoie si la cellule est un réalisateur ou non
 bool isRealisateur(struct Realisateur* r);
-
-// Renvoie le la liste de film d'un realisateur
-struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur);
 
 // Vérifie qu'un réalisateur existe
 bool isRealisateurExist(struct Realisateur* r,char* author);
