@@ -23,21 +23,25 @@
     <body>
         <div id="body">
          <div id="column">
+            <h1>Faites votre recherche</h1>
             <div id="search">
                 <form id="research">
                     <div id="searchbar">
-                        <div>
-                            <a id="realisateurError"></a>
+                        <div class="form">
+                            <div>
+                                <a id="realisateurError"></a>
+                            </div>
+                            <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">
                         </div>
-                        <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">
-                        
-                        <div>
-                            <a id="dureeError"></a>
+                        <div class="form">
+                            <div>
+                                <a id="dureeError"></a>
+                            </div>
+                            <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
                         </div>
-                        <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
                     </div>
                     <div id="button">
-                        <input type="submit" onclick="research()" id="go" value="Confirmer" class="button">
+                        <input type="submit" onclick="research()" id="submitBtn" value="Confirmer" class="button">
                     </div>
                 </form>
             </div>
