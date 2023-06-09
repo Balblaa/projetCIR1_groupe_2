@@ -39,7 +39,7 @@ function validateForm() {
     let duree = document.getElementById("duree").value;
 
     //Définir les expressions régulières
-    let realisateurRegex = /^[a-zA-Z ]+$/;
+    let realisateurRegex = /^[a-zA-Z \-]+$/;
     let dureeRegex =/^[0-9]+$/;
 
     //Tester les valeurs des champs avec les expressions régulières
@@ -58,7 +58,7 @@ function validateForm() {
     if (isRealisateurValid || realisateur === "") {
         realisateurError.innerHTML = "";
     } else {
-        realisateurError.innerHTML = "Le réalisateur doit contenir uniquement des lettres";
+        realisateurError.innerHTML = "Le réalisateur doit contenir uniquement des lettres et pas d'accents";
     }
 
     if (isDureeValid || duree === "") {
@@ -85,6 +85,10 @@ document.getElementById("duree").addEventListener("input", validateForm);
 validateForm();
 
 // fonction qui permet de lire un fichier
+function readFile(){
+    readFileByName("ready.txt");
+    return readFileByName("results.txt");
+}
 function readFileByName(fileName){
 
     let xhr = new XMLHttpRequest();
@@ -98,10 +102,8 @@ function readFileByName(fileName){
     return xhr.responseText;
 }
 
-function readFile(){
-    readFileByName("ready.txt");
-    return readFileByName("results.txt");
-}
+let myResults = readFile();
+console.log(myResults);
 
 //fonction qui affiche les films dans un tableau
 function printMovies(){
@@ -131,3 +133,4 @@ function printMovies(){
         cell2.innerHTML = movie[1];
     }
 }
+
