@@ -22,6 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bankRealisateur.h" beforeDir="false" afterPath="$PROJECT_DIR$/bankRealisateur.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +65,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="c" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="c" TARGET_NAME="c" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="c" RUN_TARGET_NAME="c">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -85,6 +81,7 @@
       <updated>1686229909137</updated>
       <workItem from="1686229910743" duration="1725000" />
       <workItem from="1686231659670" duration="1000" />
+      <workItem from="1686294051014" duration="317000" />
     </task>
     <servers />
   </component>
