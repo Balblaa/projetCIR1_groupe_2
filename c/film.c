@@ -26,7 +26,7 @@ struct Film* addFilm(struct Film* f, char title[MAXTITLE], char type[MAXTYPE], i
         while(iter->next != NULL){
             iter = iter->next;
         }
-        f->next = createFilm(title, type, time);
+        iter->next = createFilm(title, type, time);
         return f;
     }
 }
