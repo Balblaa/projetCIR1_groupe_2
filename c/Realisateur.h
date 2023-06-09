@@ -13,8 +13,10 @@ struct Realisateur{
     bool isAuthor;
     struct Film;
 };
+
+//  Créer le premier noeud
 struct realisateur* createEmptyRealisateur();
-bool isRealisateurEmpty(struct Realisateur* r);
+
 bool insertFilm(struct Realisateur* r,struct Film* f);
 bool isAuthor(struct Realisateur* r);
 bool getIsAuthor(struct Realisateur* r);
