@@ -18,8 +18,8 @@ struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
     int n = strlen(realisateur);
     for(int i=0; i<n; i++){
         if(r->lettre[realisateur[i]-'a'] != NULL){
-            if(r->lettre[realisateur[i]-'a'] == 27){
-
+            if(realisateur[i]-'-' == 0){
+                r = r->lettre[NBLETTRE-1];
             } else {
                 r = r->lettre[realisateur[i]-'a'];
             }
@@ -29,7 +29,8 @@ struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
 }
 
 // rajoute un film au réalisateur donné
-void insertFilm(struct Realisateur* r, struct Film* f);
+void insertFilm(struct Realisateur* r, struct Film* f, char* realisateur){
+}
 
 // suprime un film avec son titre et son auteur
 void deleteFilm(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]);

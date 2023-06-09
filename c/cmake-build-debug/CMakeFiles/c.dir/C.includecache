@@ -41,6 +41,14 @@ stdbool.h
 -
 
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdbool.h
+-
 filmotheque.h
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.h
 
@@ -65,6 +73,8 @@ string.h
 -
 stdbool.h
 -
+film.h
+/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.h
 
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/realisateur.c
 realisateur.h

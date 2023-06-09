@@ -23,7 +23,7 @@ struct Realisateur* createEmptyRealisateur();
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur);
 
 // rajoute un film au réalisateur donné
-void insertFilm(struct Realisateur* r, struct Film* f);
+void insertFilm(struct Realisateur* r, struct Film* f,char* realisateur);
 
 // suprime un film avec son titre et son auteur
 void deleteFilm(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]);

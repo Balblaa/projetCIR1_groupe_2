@@ -23,10 +23,10 @@ struct Film* addFilm(struct Film* f, char title[MAXTITLE], char type[MAXTYPE], i
     }
     else {
         struct Film* iter = f;
-        while(f->next != NULL){
+        while(iter->next != NULL){
             iter = iter->next;
         }
-        f->next = createFilm(title, type, time);
+        iter->next = createFilm(title, type, time);
         return f;
     }
 }
@@ -78,7 +78,7 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
         }
         while(getNext(iter) != NULL){
             iter = getNext(iter);
-            if(strcmp(getTitle(iter), type) == 0){
+            if(strcmp(getType(iter), type) == 0){
                 return iter;
             }
         }

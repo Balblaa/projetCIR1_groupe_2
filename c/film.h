@@ -43,7 +43,7 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]);
 // Affiche les film a la suite
 void printFilm(struct Film* f);
 
-// Suprime le premier film
+// Suprime le premier film et renvoie le film suivant
 struct Film* deleteFirst(struct Film* f);
 
 // Suprime un film par son titre
