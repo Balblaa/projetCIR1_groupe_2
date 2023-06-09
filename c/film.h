@@ -38,12 +38,12 @@ int getTime(struct Film* f);
 struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]);
 
 // Renvoie le premier film avec le type recherché
-struct Film* getFilmByType(struct Film f, char type[MAXTYPE]);
+struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]);
 
 // Suprime le premier film
-void deleteFirst(struct Film* f);
+struct Film* deleteFirst(struct Film* f);
 
 // Suprime tous les films
-void deleteFilm(struct Film* f);
+void deleteFilm(struct Film** f);
 
 #endif //C_FILM_H

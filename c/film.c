@@ -69,16 +69,39 @@ struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]){
 }
 
 // Renvoie le premier film avec le type recherché
-struct Film* getFilmByType(struct Film f, char type[MAXTYPE]){
-
+struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
+    if(f != NULL){
+        struct Film* iter = f;
+        if(strcmp(getType(iter), type) == 0){
+            return iter;
+        }
+        while(getNext(f) != NULL){
+            iter = getNext(iter);
+            if(strcmp(getTitle(iter), type) == 0){
+                return iter;
+            }
+        }
+    }
+    return NULL;
 }
 
 // Suprime le premier film
-void deleteFirst(struct Film* f){
+struct Film* deleteFirst(struct Film* f){
+    if (f == NULL) {
+        return f;
+    }
+    struct Film* new = f->next;
+    free(f);
 
+    return new;
 }
 
 // Suprime tous les films
-void deleteFilm(struct Film* f){
-
+void deleteFilm(struct Film** f){
+    struct Film* iter = *f;
+    while(iter->next != NULL){
+        iter = deleteFirst(iter);
+    }
+    deleteFirst(iter);
+    *f = NULL;
 }
