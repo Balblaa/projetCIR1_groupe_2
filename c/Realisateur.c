@@ -15,7 +15,17 @@ struct Realisateur* createEmptyRealisateur(){
 
 // Renvoie le la liste de film d'un realisateur
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
+    int n = strlen(realisateur);
+    for(int i=0; i<n; i++){
+        if(r->lettre[realisateur[i]-'a'] != NULL){
+            if(r->lettre[realisateur[i]-'a'] == 27){
 
+            } else {
+                r = r->lettre[realisateur[i]-'a'];
+            }
+        }
+    }
+    return r;
 }
 
 // rajoute un film au réalisateur donné
