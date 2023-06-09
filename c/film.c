@@ -52,6 +52,7 @@ int getTime(struct Film* f){
 }
 
 // Renvoie le premier film avec le titre recherché
+//!!!!Seg fault!!!!
 struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]){
     if(f != NULL){
         struct Film* iter = f;
