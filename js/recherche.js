@@ -85,6 +85,10 @@ document.getElementById("duree").addEventListener("input", validateForm);
 validateForm();
 
 // fonction qui permet de lire un fichier
+function readFile(){
+    readFileByName("ready.txt");
+    return readFileByName("results.txt");
+}
 function readFileByName(fileName){
 
     let xhr = new XMLHttpRequest();
@@ -98,10 +102,8 @@ function readFileByName(fileName){
     return xhr.responseText;
 }
 
-function readFile(){
-    readFileByName("ready.txt");
-    return readFileByName("results.txt");
-}
+let myResults = readFile();
+console.log(myResults);
 
 //fonction qui affiche les films dans un tableau
 function printMovies(){
@@ -131,3 +133,4 @@ function printMovies(){
         cell2.innerHTML = movie[1];
     }
 }
+
