@@ -78,7 +78,7 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
         }
         while(getNext(iter) != NULL){
             iter = getNext(iter);
-            if(strcmp(getTitle(iter), type) == 0){
+            if(strcmp(getType(iter), type) == 0){
                 return iter;
             }
         }
