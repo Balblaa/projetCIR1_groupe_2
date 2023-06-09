@@ -48,3 +48,26 @@ document.getElementById("duree").addEventListener("input", validateForm);
 
 //Appeler la fonction validateForm au chargement de la page
 validateForm();
+
+function readFileByName(fileName){
+
+    let xhr = new XMLHttpRequest();
+    do {
+        xhr.open("GET", fileName, false);
+        xhr.send(null);
+
+    }while(xhr.status === 404);
+
+    // assumes status 200
+    return xhr.responseText;
+}
+
+function readFile(){
+    readFileByName("ready.txt");
+    return readFileByName("results.txt");
+}
+findFic();
+function printMovies(){
+
+
+}
