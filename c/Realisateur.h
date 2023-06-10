@@ -52,5 +52,7 @@ void displayRealisateurs(struct Realisateur* r, char* realisateur, int index);
 // suprime tous les réalisateurs
 void deleteRealisateurs(struct Realisateur** r);
 
+struct Realisateur* buildRealisateurFromtxt(char* nomfichier);
+
 
 #endif //C_BANKREALISATEUR_H

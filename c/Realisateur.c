@@ -133,7 +133,7 @@ bool isRealisateurExist(struct Realisateur* r,char* realisateur){
 }
 
 // Affiche les réalisateur
-void displayRealisateur(struct Realisateur* r, char* realisateur, int index){
+void displayRealisateurs(struct Realisateur* r, char* realisateur, int index){
     if(isRealisateur(r)){
         realisateur[index] = '\0';
         printf("%s\n", realisateur);
@@ -146,7 +146,7 @@ void displayRealisateur(struct Realisateur* r, char* realisateur, int index){
             else {
                 realisateur[index] = 'a' + i;
             }
-            displayRealisateur(getChidren(r)[i], realisateur, index+1);
+            displayRealisateurs(getChidren(r)[i], realisateur, index+1);
         }
     }
 }
@@ -168,4 +168,76 @@ void deleteRealisateurs(struct Realisateur** r){
         free(*r);
         *r = NULL;
     }
+}
+
+struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
+
+    FILE* fichier;
+    fichier = fopen(nomfichier, "r");
+
+    struct Realisateur* r = createEmptyRealisateur();
+
+    char realisateur[MAXAUTHOR];
+    char title[MAXTITLE];
+    char type[MAXTYPE];
+    char time[3];
+    int counter = 0;
+    int index = 0;
+
+    while(!feof(fichier)) {
+        char c = fgetc(fichier);
+        if (c == '\n') {
+            type[index] = '\0';
+            struct Film* f = createFilm(title, type, realisateur, atoi(time));
+            insertFilm(r, f);
+            counter = 0;
+            index = 0;
+        }
+        else if (c == ';') {
+            switch (counter) {
+                case 0:
+                    realisateur[index] = '\0';
+                    counter++;
+                    index = 0;
+                    break;
+                case 1:
+                    title[index] = '\0';
+                    counter++;
+                    index = 0;
+                    break;
+                case 2:
+                    time[index] = '\0';
+                    counter++;
+                    index = 0;
+                    break;
+            }
+        } else {
+            switch (counter) {
+                case 0:
+                    if(c >= 'A' && c <= 'Z'){
+                        realisateur[index] = c + 32;
+                    }
+                    else {
+                        realisateur[index] = c;
+                    }
+                    index++;
+                    break;
+                case 1:
+                    title[index] = c;
+                    index++;
+                    break;
+                case 2:
+                    time[index] = c;
+                    index++;
+                    break;
+                case 3:
+                    type[index] = c;
+                    index++;
+                    break;
+            }
+        }
+    }
+
+    fclose(fichier);
+    return r;
 }
