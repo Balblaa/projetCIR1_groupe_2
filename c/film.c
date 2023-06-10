@@ -153,10 +153,12 @@ struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]){
 
 // Suprime tous les films
 void deleteFilms(struct Film** f){
-    struct Film* iter = *f;
-    while(iter->next != NULL){
-        iter = deleteFirst(iter);
+    if(*f != NULL) {
+        struct Film *iter = *f;
+        while (iter->next != NULL) {
+            iter = deleteFirst(iter);
+        }
+        deleteFirst(iter);
+        *f = NULL;
     }
-    deleteFirst(iter);
-    *f = NULL;
 }

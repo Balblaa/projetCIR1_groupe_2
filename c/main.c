@@ -21,16 +21,16 @@ int main() {
     int index = 0;
 
     struct Film* a = createFilm("proutland", "prout", "michel", 75);
+    struct Film* a2 = createFilm("arbre", "romance", "michel", 360);
     struct Film* b = createFilm("underprout", "prout", "patrique", 300);
     struct Film* c = createFilm("Le pull perdu", "aventure", "moi", 160);
     struct Film* d = createFilm("poulpattack", "horreur", "lisa", 69);
 
-    a = addFilm(a, b);
-    a = addFilm(a, c);
-    a = addFilm(a, d);
+    insertFilm(r, a);
+    insertFilm(r, b);
+    insertFilm(r, a2);
+    insertFilm(r, c);
+    insertFilm(r, d);
 
-    printFilm(a);
-    deleteFilmByTitle(a, "Le pull perdu");
-    printFilm(a);
-    deleteFilms(&a);
+    deleteRealisateurs(&r);
 }

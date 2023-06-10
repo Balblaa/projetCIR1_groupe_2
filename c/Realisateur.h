@@ -19,11 +19,14 @@ struct Realisateur{
 //  Créer le premier noeud de réalisateur
 struct Realisateur* createEmptyRealisateur();
 
-// Renvoie la liste des films du réalisateur
-struct Film* getFilm(struct Realisateur* r);
-
 // Renvoie la liste de tout les enfants de réalisateur
 struct Realisateur** getChidren(struct Realisateur* trie);
+
+// Renvoie si un réalisateur est vide
+bool isRealisateurEmpty(struct Realisateur* r);
+
+// Renvoie la liste des films du réalisateur
+struct Film* getFilm(struct Realisateur* r);
 
 // Renvoie le la liste de film d'un realisateur
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur);
@@ -44,10 +47,10 @@ bool isRealisateur(struct Realisateur* r);
 bool isRealisateurExist(struct Realisateur* r,char* author);
 
 // Affiche les réalisateur
-void displayRealisateur(struct Realisateur* r, char* realisateur, int index);
+void displayRealisateurs(struct Realisateur* r, char* realisateur, int index);
 
 // suprime tous les réalisateurs
-void deleteRealisateur(struct Realisateur* r);
+void deleteRealisateurs(struct Realisateur** r);
 
 
 #endif //C_BANKREALISATEUR_H

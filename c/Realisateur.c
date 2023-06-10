@@ -18,6 +18,16 @@ struct Realisateur** getChidren(struct Realisateur* r){
     return r->lettre;
 }
 
+// Renvoie si un réalisateur est vide
+bool isRealisateurEmpty(struct Realisateur* r){
+    for(int i = 0; i<NBLETTRE; i++){
+        if(getChidren(r)[i] != NULL){
+            return false;
+        }
+    }
+    return true;
+}
+
 // Renvoie la liste des films du réalisateur
 struct Film* getFilm(struct Realisateur* r){
     return r->film;
@@ -96,7 +106,9 @@ void insertFilm(struct Realisateur* r, struct Film* f){
 }
 
 // suprime un film avec son titre et son auteur
-void deleteFilmByName(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]);
+void deleteFilmByName(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]){
+
+}
 
 // Renvoie si la cellule est un réalisateur ou non
 bool isRealisateur(struct Realisateur* r){
@@ -140,4 +152,20 @@ void displayRealisateur(struct Realisateur* r, char* realisateur, int index){
 }
 
 // suprime tous les réalisateurs
-void deleteRealisateur(struct Realisateur* r);
+void deleteRealisateurs(struct Realisateur** r){
+    if(isRealisateur(*r)){
+        deleteFilms(&(*r)->film);
+    }
+    if(isRealisateurEmpty(*r)){
+        free(*r);
+    }
+    else {
+        for (int i = 0; i < NBLETTRE; i++) {
+            if (getChidren(*r)[i] != NULL) {
+                deleteRealisateurs(&(*r)->lettre[i]);
+            }
+        }
+        free(*r);
+        *r = NULL;
+    }
+}
