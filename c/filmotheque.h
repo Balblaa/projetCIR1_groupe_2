@@ -31,11 +31,11 @@ void getPlusLongFilm(struct Filmotheque* ft);
 // Renvoie le nom du réalisateur avec le plus de film
 void getRealisateurProductif(struct Filmotheque* ft);
 
-// True si la filmothèque est vide Fasle sinon
+// True si la filmothèque est vide False sinon
 bool isFilmothequeEmpty(struct Filmotheque* ft);
 
-//
-bool insertRealisateur(struct Filmotheque* ft,struct realisateur* r);
+
+void insertAuthor(struct Filmotheque* ft,struct Realisateur* r);
 
 //affiche la structure
 void printFilmotheque(struct Filmotheque* ft);

@@ -116,10 +116,10 @@ struct Film* deleteFirst(struct Film* f){
 struct Film* deleteFilmByTitle(struct Film* f, char* title[MAXTITLE]){
     struct Film* iter = f;
     struct Film* suprFilm;
-    if (strcmp(getTitle(iter), title) == 0) {
+    if (strcmp(getTitle(iter), *title) == 0) {
         f = deleteFirst(iter);
     } else {
-        while(strcmp(getTitle(iter->next), title) != 0){
+        while(strcmp(getTitle(iter->next), *title) != 0){
             iter = getNext(iter);
         }
         suprFilm = iter->next;

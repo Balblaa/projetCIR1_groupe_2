@@ -19,8 +19,14 @@ struct Realisateur{
 //  Créer le premier noeud de réalisateur
 struct Realisateur* createEmptyRealisateur();
 
+// Renvoie la liste de tout les enfants de réalisateur
+struct Realisateur** getChidren(struct Realisateur* trie);
+
 // Renvoie le la liste de film d'un realisateur
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur);
+
+// rajoute un réalisateur dans l'arbre
+void insertRealisateur(struct Realisateur* r, char* realisateur);
 
 // rajoute un film au réalisateur donné
 void insertFilm(struct Realisateur* r, struct Film* f,char* realisateur);
@@ -33,6 +39,9 @@ bool isRealisateur(struct Realisateur* r);
 
 // Vérifie qu'un réalisateur existe
 bool isRealisateurExist(struct Realisateur* r,char* author);
+
+// Affiche les réalisateur
+void displayRealisateur(struct Realisateur* r, char* realisateur, int index);
 
 // suprime tous les réalisateurs
 void deleteRealisateur(struct Realisateur* r);
