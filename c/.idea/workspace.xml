@@ -20,19 +20,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="">
+    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="brouillons realisateur">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realisateur.c" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realisateur.h" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/film.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/film.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/filmotheque.c.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/realisateur.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/realisateur.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/film.c" beforeDir="false" afterPath="$PROJECT_DIR$/film.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmotheque.h" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/film.h" beforeDir="false" afterPath="$PROJECT_DIR$/film.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +105,8 @@
       <workItem from="1686231659670" duration="1000" />
       <workItem from="1686294051014" duration="7634000" />
       <workItem from="1686323680107" duration="304000" />
-      <workItem from="1686325376605" duration="10790000" />
+      <workItem from="1686325376605" duration="16076000" />
+      <workItem from="1686405910188" duration="2673000" />
     </task>
     <task id="LOCAL-00001" summary="fin de film">
       <created>1686303808802</created>
@@ -173,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686320988298</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="brouillons realisateur">
+      <created>1686400807015</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686400807015</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +204,18 @@
     <MESSAGE value="msj" />
     <MESSAGE value="correction addFirst film.c" />
     <MESSAGE value="fin correction de film.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="fin correction de film.c" />
+    <MESSAGE value="brouillons realisateur" />
+    <option name="LAST_COMMIT_MESSAGE" value="brouillons realisateur" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/realisateur.c</url>
+          <line>87</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
