@@ -6,21 +6,17 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "Realisateur.h"
-#define MAXLENGTH 100
+#include "realisateur.h"
 
 struct Filmotheque{
     int maxFilm;
-    char realisateurProductif[MAXLENGTH];
+    char realisateurProductif[MAXAUTHOR];
     struct Realisateur* r;
     int plusLongFilm;
 };
 
 //operation de création
-struct Filmotheque* createemptyFilmotheque();
-
-//opération d'insertion des éléments de la base de donnée.
-struct Filmotheque* buildFilmothequeFromDico(char* nomfichier);
+struct Filmotheque* createFilmotheque();
 
 // Renvoie le nombre de film du réalisateur ayant le plus de film
 int getMaxFilm(struct Filmotheque* ft);
@@ -34,8 +30,8 @@ void getRealisateurProductif(struct Filmotheque* ft);
 // True si la filmothèque est vide False sinon
 bool isFilmothequeEmpty(struct Filmotheque* ft);
 
-
-void insertAuthor(struct Filmotheque* ft,struct Realisateur* r);
+// Permet de rajouter un Film
+void addNewFilm(struct Filmotheque* ft,struct Film* f);
 
 //affiche la structure
 void printFilmotheque(struct Filmotheque* ft);

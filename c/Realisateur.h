@@ -8,7 +8,10 @@
 
 #include "film.h"
 
-#define NBLETTRE 27
+// la 27 lettre est un '''
+// la 28 lettre est un ' '
+// la 29 lettre est un '-'
+#define NBLETTRE 29
 
 struct Realisateur{
     struct Realisateur* lettre[NBLETTRE];
@@ -52,7 +55,11 @@ void displayRealisateurs(struct Realisateur* r, char* realisateur, int index);
 // suprime tous les réalisateurs
 void deleteRealisateurs(struct Realisateur** r);
 
+// Construie un arbre avec les réalisateur ainsi que les film a partir d'un txt
 struct Realisateur* buildRealisateurFromtxt(char* nomfichier);
+
+// renvoie le realisateur avec le plus de film
+struct Realisateur* bestRealisateur(struct Realisateur* r);
 
 
 #endif //C_BANKREALISATEUR_H

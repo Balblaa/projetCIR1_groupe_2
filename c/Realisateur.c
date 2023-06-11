@@ -37,7 +37,15 @@ struct Film* getFilm(struct Realisateur* r){
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
     int n = strlen(realisateur);
     for(int i=0; i<n; i++){
-        if(realisateur[i]-'-' == 0 && r->lettre[NBLETTRE-1] != NULL){
+
+        // 44 représente le caractère "'"
+        if(realisateur[i] - '\'' == 0 && r->lettre[NBLETTRE-3] != NULL){
+            r = r->lettre[NBLETTRE-3];
+        }
+        else if(realisateur[i]-' ' == 0 && r->lettre[NBLETTRE-2] != NULL){
+            r = r->lettre[NBLETTRE-2];
+        }
+        else if(realisateur[i]-'-' == 0 && r->lettre[NBLETTRE-1] != NULL){
             r = r->lettre[NBLETTRE-1];
         }
         else if(r->lettre[realisateur[i]-'a'] != NULL){
@@ -59,8 +67,37 @@ struct Realisateur* insertRealisateur(struct Realisateur* r, char* realisateur){
     // Pour chaque lettre du nom du réalisateur on regarde la destination
     for(int i=0; i<n; i++){
 
-        // On traite d'abord le caractère spécial: "-"
-        if (realisateur[i]-'-' == 0){
+
+        // On traite d'abord le caractère spécial: "'"
+        if (realisateur[i]- '\'' == 0){
+
+            // On vérifie si l'emplacement existe
+            if(r->lettre[NBLETTRE-3] != NULL){
+                // Si oui, on se déplace dans la nouvelle "lettre" pour trouvé notre destination
+                r = r->lettre[NBLETTRE-3];
+            }
+            else {
+                // Si non, on la créer puis on continue de la même manière
+                r->lettre[NBLETTRE-3] = createEmptyRealisateur();
+                r = r->lettre[NBLETTRE-3];
+            }
+        }
+        // On traite d'abord le caractère spécial: " "
+        else if (realisateur[i]-' ' == 0){
+
+            // On vérifie si l'emplacement existe
+            if(r->lettre[NBLETTRE-2] != NULL){
+                // Si oui, on se déplace dans la nouvelle "lettre" pour trouvé notre destination
+                r = r->lettre[NBLETTRE-2];
+            }
+            else {
+                // Si non, on la créer puis on continue de la même manière
+                r->lettre[NBLETTRE-2] = createEmptyRealisateur();
+                r = r->lettre[NBLETTRE-2];
+            }
+        }
+        // Si se n'est pas un " " alors c'est peut être un "-"
+        else if (realisateur[i]-'-' == 0){
 
             // On vérifie si l'emplacement existe
             if(r->lettre[NBLETTRE-1] != NULL){
@@ -117,11 +154,23 @@ bool isRealisateur(struct Realisateur* r){
 bool isRealisateurExist(struct Realisateur* r,char* realisateur){
     int n = strlen(realisateur);
     for(int i=0; i<n; i++){
-        if(realisateur[i]-'-' == 0){
+        if(realisateur[i]- '\'' == 0){
+            if(r->lettre[NBLETTRE-3] == NULL){
+                return false;
+            }
+            r = r->lettre[NBLETTRE-3];
+        }
+        else if(realisateur[i]-' ' == 0){
+            if(r->lettre[NBLETTRE-2] == NULL){
+                return false;
+            }
+            r = r->lettre[NBLETTRE-2];
+        }
+        else if(realisateur[i]-'-' == 0){
             if(r->lettre[NBLETTRE-1] == NULL){
                 return false;
             }
-            r = r->lettre[26];
+            r = r->lettre[NBLETTRE-1];
         }
         else {
             if (r->lettre[realisateur[i] - 'a'] == NULL) {
@@ -141,7 +190,13 @@ void displayRealisateurs(struct Realisateur* r, char* realisateur, int index){
     }
     for(int i=0; i<NBLETTRE; i++){
         if(getChidren(r)[i] != NULL){
-            if(i == 26){
+            if(i == NBLETTRE-3){
+                realisateur[index] = '\'';
+            }
+            else if(i == NBLETTRE-2){
+                realisateur[index] = ' ';
+            }
+            else if(i == NBLETTRE-1){
                 realisateur[index] = '-';
             }
             else {
@@ -172,6 +227,7 @@ void deleteRealisateurs(struct Realisateur** r){
     }
 }
 
+// Construie un arbre avec les réalisateur ainsi que les film a partir d'un txt
 struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
 
     FILE* fichier;
@@ -242,4 +298,26 @@ struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
 
     fclose(fichier);
     return r;
+}
+
+// renvoie le realisateur avec le plus de film
+struct Realisateur* bestRealisateur(struct Realisateur* r){
+
+    int max = 0;
+    struct Realisateur* best = NULL;
+
+    if(isRealisateur(r)){
+        max = r->film->size;
+        best = r;
+    }
+    for(int i=0; i<NBLETTRE; i++){
+        if(r->lettre[i] != NULL){
+            struct Realisateur* temp = bestRealisateur(r->lettre[i]);
+            if(temp->film->size > max){
+                max = temp->film->size;
+                best = temp;
+            }
+        }
+    }
+    return best;
 }

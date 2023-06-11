@@ -15,6 +15,7 @@ struct Film{
     char title[MAXTITLE];
     char type[MAXTYPE];
     int time;
+    int size;
     struct Film* next;
 };
 

@@ -12,6 +12,7 @@ struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE],char author[MAX
         strcpy(f->type, type);
         strcpy(f->author, author);
         f->time = time;
+        f->size = 1;
         f->next = NULL;
     }
     return f;
@@ -24,6 +25,7 @@ struct Film* addFilm(struct Film* f, struct Film* newf){
     }
     else {
         newf->next = f;
+        newf->size = f->size + 1;
         return newf;
     }
 }
@@ -143,6 +145,7 @@ struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]){
         suprFilm = iter->next;
         iter->next = iter->next->next;
         free(suprFilm);
+        f->size = f->size - 1;
     }
     return f;
 }
