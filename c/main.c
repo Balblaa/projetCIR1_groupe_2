@@ -12,5 +12,6 @@ int main() {
     addFilm(f, "alcoolisme", "drame", 78);
     addFilm(f, "les victoire de ssm", "horreur", 199);
     printFilm(f);
-    printFilm(getFilmByType(f, "action"));
+    printFilm(getFilmByType(f,"action"));
+    printFilm(f);
 }
