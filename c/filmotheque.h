@@ -13,10 +13,14 @@ struct Filmotheque{
     int maxFilm;
     char realisateurProductif[MAXAUTHOR];
     int plusLongFilm;
+    struct Film** filmParChrnono;
 };
 
 //operation de création
 struct Filmotheque* createFilmotheque(char* nomfichier);
+
+// Créer la liste des films rangés par chrono
+void createListFilmChrono(struct Filmotheque* ft,char* nomfichier);
 
 // Renvoie le nombre de film du réalisateur ayant le plus de film
 int getMaxFilm(struct Filmotheque* ft);
@@ -36,9 +40,13 @@ void printFilmotheque(struct Filmotheque* ft);
 // True si un réalisateur existe
 bool isAuthorExist(struct Filmotheque* ft,char* author);
 
+// Surpimer un film avec le nom du réalisateur et le titre
+void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* title);
+
 //supprimer la structure
 void deleteFilmothque(struct Filmotheque** ft);
 
-
+// Renvoie un fichier result.txt avec les Films cherché par Titre
+void searchByAuthor(struct Filmotheque* ft);
 
 #endif //C_FILMOTHEQUE_H

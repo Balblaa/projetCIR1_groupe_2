@@ -20,14 +20,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="ajout des caractère &quot;'&quot; et ' '">
+    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="fin filmotheque.c">
+      <change afterPath="$PROJECT_DIR$/listChrono.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realisateur.c" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realisateur.h" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/film.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/film.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/filmotheque.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/filmotheque.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/realisateur.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/realisateur.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/c.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/c.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/film.c" beforeDir="false" afterPath="$PROJECT_DIR$/film.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/film.h" beforeDir="false" afterPath="$PROJECT_DIR$/film.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/filmotheque.c" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/filmotheque.h" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
@@ -88,6 +94,11 @@
   }
 }]]></component>
   <component name="RunManager" selected="CMake Application.c">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="c" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="c" TARGET_NAME="c" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="c" RUN_TARGET_NAME="c">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -99,6 +110,10 @@
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="C/C++ File.main.c" />
+      <item itemvalue="CMake Application.c" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="C/C++ File.main.c" />
@@ -121,7 +136,7 @@
       <workItem from="1686405910188" duration="4339000" />
       <workItem from="1686411048468" duration="14432000" />
       <workItem from="1686440869031" duration="3179000" />
-      <workItem from="1686477818245" duration="16157000" />
+      <workItem from="1686477818245" duration="24129000" />
     </task>
     <task id="LOCAL-00001" summary="fin de film">
       <created>1686303808802</created>
@@ -235,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686489948785</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fin filmotheque.c">
+      <created>1686497694864</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686497694864</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +290,18 @@
     <MESSAGE value="buildrealisateurfromtxt fonctionnel" />
     <MESSAGE value="buildrealisateurfromtxt sauf le valgrind" />
     <MESSAGE value="ajout des caractère &quot;'&quot; et ' '" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout des caractère &quot;'&quot; et ' '" />
+    <MESSAGE value="fin filmotheque.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin filmotheque.c" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/filmotheque.c</url>
+          <line>96</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

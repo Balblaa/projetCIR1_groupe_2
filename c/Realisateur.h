@@ -17,6 +17,7 @@ struct Realisateur{
     struct Realisateur* lettre[NBLETTRE];
     bool isRealisateur;
     struct Film* film;
+    int longestFilm;
 };
 
 //  Créer le premier noeud de réalisateur
@@ -41,7 +42,7 @@ struct Realisateur* insertRealisateur(struct Realisateur* r, char* realisateur);
 void insertFilm(struct Realisateur* r, struct Film* f);
 
 // suprime un film avec son titre et son auteur
-void deleteFilm(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]);
+void deleteFilmFromRealisateur(struct Realisateur* r, char* realisateur, char* title);
 
 // Renvoie si la cellule est un réalisateur ou non
 bool isRealisateur(struct Realisateur* r);
@@ -60,6 +61,9 @@ struct Realisateur* buildRealisateurFromtxt(char* nomfichier);
 
 // renvoie le realisateur avec le plus de film
 struct Realisateur* bestRealisateur(struct Realisateur* r);
+
+// Renvoie la durée du plus long film
+int findlongestFilm(struct Realisateur* r);
 
 
 #endif //C_BANKREALISATEUR_H

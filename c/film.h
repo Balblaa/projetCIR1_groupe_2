@@ -41,13 +41,16 @@ char* getType(struct Film* f);
 int getTime(struct Film* f);
 
 // Renvoie le premier film avec le titre recherché
-struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]);
+struct Film* getFilmByTitle(struct Film* f, char* title);
 
 // Renvoie le premier film avec le type recherché
-struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]);
+struct Film* getFilmByType(struct Film* f, char* type);
 
 // Renvoie le premier film avec la durée recherché
 struct Film* getFilmByTime(struct Film* f, int time);
+
+// Renvoie la durée du film le plus long
+int longestFilm(struct Film* f);
 
 // Affiche les film a la suite
 void printFilm(struct Film* iter);
@@ -56,7 +59,7 @@ void printFilm(struct Film* iter);
 struct Film* deleteFirst(struct Film* f);
 
 // Suprime un film par son titre
-struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]);
+struct Film* deleteFilmByTitle(struct Film* f, char* title);
 
 // Suprime tous les films
 void deleteFilms(struct Film** f);

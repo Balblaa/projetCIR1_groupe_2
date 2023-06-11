@@ -90,6 +90,12 @@
 		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.h">
 			<Option target="c"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/listChrono.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/listChrono.h">
+			<Option target="c"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/main.c">
 			<Option target="c"/>
 		</Unit>

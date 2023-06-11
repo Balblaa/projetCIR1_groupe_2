@@ -106,6 +106,19 @@ struct Film* getFilmByTime(struct Film* f, int time){
     return NULL;
 }
 
+// Renvoie la durée du film le plus long
+int longestFilm(struct Film* f){
+    int max = getTime(f);
+    struct Film* iter = f;
+    while (iter->next != NULL){
+        iter = iter->next;
+        if(getTime(iter) > max){
+            max = getTime(iter);
+        }
+    }
+    return max;
+}
+
 // Affiche les film a la suite
 void printFilm(struct Film* f){
     if (f == NULL) {

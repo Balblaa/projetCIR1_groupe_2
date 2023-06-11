@@ -9,6 +9,7 @@ struct Realisateur* createEmptyRealisateur(){
             r->lettre[i] = NULL;
         }
         r->film = NULL;
+        r->longestFilm = 0;
     }
     return r;
 }
@@ -143,7 +144,10 @@ void insertFilm(struct Realisateur* r, struct Film* f){
 }
 
 // suprime un film avec son titre et son auteur
-void deleteFilmByName(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]);
+void deleteFilmFromRealisateur(struct Realisateur* r, char* realisateur, char* title){
+    r = findRealisateur(r, realisateur);
+    deleteFilmByTitle(r->film, title);
+}
 
 // Renvoie si la cellule est un réalisateur ou non
 bool isRealisateur(struct Realisateur* r){
@@ -320,4 +324,22 @@ struct Realisateur* bestRealisateur(struct Realisateur* r){
         }
     }
     return best;
+}
+
+// Renvoie la durée du plus long film
+int findlongestFilm(struct Realisateur* r){
+    int max = 0;
+
+    if(isRealisateur(r)){
+        max = longestFilm(r->film);
+    }
+    for(int i=0; i<NBLETTRE; i++){
+        if(r->lettre[i] != NULL){
+            int newTime = findlongestFilm(r->lettre[i]);
+            if(newTime > max){
+                max = newTime;
+            }
+        }
+    }
+    return max;
 }
