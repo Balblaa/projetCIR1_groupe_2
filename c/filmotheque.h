@@ -7,20 +7,18 @@
 #include <stdbool.h>
 
 #include "realisateur.h"
+#include "listChrono.h"
 
 struct Filmotheque{
     struct Realisateur* r;
     int maxFilm;
     char realisateurProductif[MAXAUTHOR];
     int plusLongFilm;
-    struct Film** filmParChrnono;
+    struct ListChrono* listFilmByChrono;
 };
 
 //operation de création
 struct Filmotheque* createFilmotheque(char* nomfichier);
-
-// Créer la liste des films rangés par chrono
-void createListFilmChrono(struct Filmotheque* ft,char* nomfichier);
 
 // Renvoie le nombre de film du réalisateur ayant le plus de film
 int getMaxFilm(struct Filmotheque* ft);
@@ -30,6 +28,9 @@ int getPlusLongFilm(struct Filmotheque* ft);
 
 // Renvoie le nom du réalisateur avec le plus de film
 char* getRealisateurProductif(struct Filmotheque* ft);
+
+// Renvoie un film en fonction d'une durée
+struct Film* getFilmByListChrono(struct Filmotheque* ft, int time);
 
 // Permet de rajouter un Film
 void addNewFilm(struct Filmotheque* ft,struct Film* f);
@@ -41,7 +42,7 @@ void printFilmotheque(struct Filmotheque* ft);
 bool isAuthorExist(struct Filmotheque* ft,char* author);
 
 // Surpimer un film avec le nom du réalisateur et le titre
-void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* title);
+void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* title, int time);
 
 //supprimer la structure
 void deleteFilmothque(struct Filmotheque** ft);

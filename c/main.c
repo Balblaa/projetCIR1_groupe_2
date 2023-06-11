@@ -6,9 +6,8 @@ int main() {
 
     struct Filmotheque* ft = createFilmotheque("../../../BD_medium.txt");
 
-    deleteFilmFromFilmotheque(ft, "leandron", "Joan of Arc of Dark Health");
-
     printFilmotheque(ft);
+    printFilm(getFilmByListChrono(ft, 341));
     deleteFilmothque(&ft);
 
 

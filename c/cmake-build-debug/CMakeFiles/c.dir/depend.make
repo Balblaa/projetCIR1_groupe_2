@@ -7,10 +7,16 @@ CMakeFiles/c.dir/film.c.o: ../film.h
 CMakeFiles/c.dir/filmotheque.c.o: ../film.h
 CMakeFiles/c.dir/filmotheque.c.o: ../filmotheque.c
 CMakeFiles/c.dir/filmotheque.c.o: ../filmotheque.h
+CMakeFiles/c.dir/filmotheque.c.o: ../listChrono.h
 CMakeFiles/c.dir/filmotheque.c.o: ../realisateur.h
+
+CMakeFiles/c.dir/listChrono.c.o: ../film.h
+CMakeFiles/c.dir/listChrono.c.o: ../listChrono.c
+CMakeFiles/c.dir/listChrono.c.o: ../listChrono.h
 
 CMakeFiles/c.dir/main.c.o: ../film.h
 CMakeFiles/c.dir/main.c.o: ../filmotheque.h
+CMakeFiles/c.dir/main.c.o: ../listChrono.h
 CMakeFiles/c.dir/main.c.o: ../main.c
 CMakeFiles/c.dir/main.c.o: ../realisateur.h
 
