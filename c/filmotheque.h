@@ -9,26 +9,23 @@
 #include "realisateur.h"
 
 struct Filmotheque{
+    struct Realisateur* r;
     int maxFilm;
     char realisateurProductif[MAXAUTHOR];
-    struct Realisateur* r;
     int plusLongFilm;
 };
 
 //operation de création
-struct Filmotheque* createFilmotheque();
+struct Filmotheque* createFilmotheque(char* nomfichier);
 
 // Renvoie le nombre de film du réalisateur ayant le plus de film
 int getMaxFilm(struct Filmotheque* ft);
 
 // Renvoie la durée du plus long film
-void getPlusLongFilm(struct Filmotheque* ft);
+int getPlusLongFilm(struct Filmotheque* ft);
 
 // Renvoie le nom du réalisateur avec le plus de film
-void getRealisateurProductif(struct Filmotheque* ft);
-
-// True si la filmothèque est vide False sinon
-bool isFilmothequeEmpty(struct Filmotheque* ft);
+char* getRealisateurProductif(struct Filmotheque* ft);
 
 // Permet de rajouter un Film
 void addNewFilm(struct Filmotheque* ft,struct Film* f);
@@ -40,6 +37,8 @@ void printFilmotheque(struct Filmotheque* ft);
 bool isAuthorExist(struct Filmotheque* ft,char* author);
 
 //supprimer la structure
-void deleteFilmothque(struct Filmotheque* ft);
+void deleteFilmothque(struct Filmotheque** ft);
+
+
 
 #endif //C_FILMOTHEQUE_H

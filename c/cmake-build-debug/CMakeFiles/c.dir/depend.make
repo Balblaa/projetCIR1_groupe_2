@@ -10,6 +10,7 @@ CMakeFiles/c.dir/filmotheque.c.o: ../filmotheque.h
 CMakeFiles/c.dir/filmotheque.c.o: ../realisateur.h
 
 CMakeFiles/c.dir/main.c.o: ../film.h
+CMakeFiles/c.dir/main.c.o: ../filmotheque.h
 CMakeFiles/c.dir/main.c.o: ../main.c
 CMakeFiles/c.dir/main.c.o: ../realisateur.h
 

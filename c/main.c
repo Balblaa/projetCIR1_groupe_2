@@ -1,14 +1,19 @@
 #include "film.h"
 #include "realisateur.h"
+#include "filmotheque.h"
 
 int main() {
+    /*
+    struct Filmotheque* ft = createFilmotheque("../../../BD_medium.txt");
 
-    struct Realisateur* r = buildRealisateurFromtxt("../../../BD_medium.txt");
+    printFilmotheque(ft);
+    deleteFilmothque(&ft);
+     */
 
-    int index = 0;
-    char rea[MAXAUTHOR];
+    FILE* fichier;
+    fichier = fopen("../../html/result.txt", "w");
+    char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = "bien le bonsoir\n";
+    fputs(texte, fichier);
 
-    displayRealisateurs(r, rea, index);
-    printf("%d\n%s", bestRealisateur(r)->film->size, getAuthor(bestRealisateur(r)->film));
-    deleteRealisateurs(&r);
+    fclose(fichier);
 }
