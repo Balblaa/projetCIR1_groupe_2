@@ -23,12 +23,8 @@ struct Film* addFilm(struct Film* f, struct Film* newf){
         return newf;
     }
     else {
-        struct Film* iter = f;
-        while(iter->next != NULL){
-            iter = iter->next;
-        }
-        iter->next = newf;
-        return f;
+        newf->next = f;
+        return newf;
     }
 }
 

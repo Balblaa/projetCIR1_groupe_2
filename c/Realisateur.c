@@ -37,7 +37,7 @@ struct Film* getFilm(struct Realisateur* r){
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
     int n = strlen(realisateur);
     for(int i=0; i<n; i++){
-        if(realisateur[i]-'-' == 0 && r->lettre[NBLETTRE-1] == NULL){
+        if(realisateur[i]-'-' == 0 && r->lettre[NBLETTRE-1] != NULL){
             r = r->lettre[NBLETTRE-1];
         }
         else if(r->lettre[realisateur[i]-'a'] != NULL){
@@ -106,9 +106,7 @@ void insertFilm(struct Realisateur* r, struct Film* f){
 }
 
 // suprime un film avec son titre et son auteur
-void deleteFilmByName(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]){
-
-}
+void deleteFilmByName(struct Realisateur* r, char* realisateur, char* title[MAXTITLE]);
 
 // Renvoie si la cellule est un réalisateur ou non
 bool isRealisateur(struct Realisateur* r){
@@ -119,15 +117,18 @@ bool isRealisateur(struct Realisateur* r){
 bool isRealisateurExist(struct Realisateur* r,char* realisateur){
     int n = strlen(realisateur);
     for(int i=0; i<n; i++){
-        if(realisateur[i]-'-' == 0 && r->lettre[NBLETTRE-1] == NULL){
-            return false;
-        }
-        else {
-            if(r->lettre[realisateur[i]-'a'] == NULL){
+        if(realisateur[i]-'-' == 0){
+            if(r->lettre[NBLETTRE-1] == NULL){
                 return false;
             }
+            r = r->lettre[26];
         }
-        r = r->lettre[realisateur[i]-'a'];
+        else {
+            if (r->lettre[realisateur[i] - 'a'] == NULL) {
+                return false;
+            }
+            r = r->lettre[realisateur[i] - 'a'];
+        }
     }
     return r->isRealisateur;
 }
@@ -158,6 +159,7 @@ void deleteRealisateurs(struct Realisateur** r){
     }
     if(isRealisateurEmpty(*r)){
         free(*r);
+        *r = NULL;
     }
     else {
         for (int i = 0; i < NBLETTRE; i++) {
@@ -187,7 +189,7 @@ struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
     while(!feof(fichier)) {
         char c = fgetc(fichier);
         if (c == '\n') {
-            type[index] = '\0';
+            type[index-1] = '\0';
             struct Film* f = createFilm(title, type, realisateur, atoi(time));
             insertFilm(r, f);
             counter = 0;
