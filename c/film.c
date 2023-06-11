@@ -5,35 +5,39 @@
 #include "film.h"
 
 // crée un film avec les données en paramètre.
-struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE], int time){
+struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE],char author[MAXAUTHOR], int time){
     struct Film* f = malloc(sizeof (struct Film));
     if(f != NULL){
         strcpy(f->title, title);
         strcpy(f->type, type);
+        strcpy(f->author, author);
         f->time = time;
+        f->size = 1;
         f->next = NULL;
     }
     return f;
 }
 
 // ajoute un film données en paramètre à la suite.
-struct Film* addFilm(struct Film* f, char title[MAXTITLE], char type[MAXTYPE], int time){
+struct Film* addFilm(struct Film* f, struct Film* newf){
     if(f == NULL){
-        return createFilm(title, type, time);
+        return newf;
     }
     else {
-        struct Film* iter = f;
-        while(iter->next != NULL){
-            iter = iter->next;
-        }
-        iter->next = createFilm(title, type, time);
-        return f;
+        newf->next = f;
+        newf->size = f->size + 1;
+        return newf;
     }
 }
 
 // Renvoie le film suivant
 struct Film* getNext(struct Film* f){
     return f->next;
+}
+
+// Renvoie le réalisateur du film
+char* getAuthor(struct Film* f){
+    return f->author;
 }
 
 // Renvoie le titre du film
@@ -52,7 +56,6 @@ int getTime(struct Film* f){
 }
 
 // Renvoie le premier film avec le titre recherché
-//!!!!Seg fault!!!!
 struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]){
     if(f != NULL){
         struct Film* iter = f;
@@ -87,6 +90,36 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
     return NULL;
 }
 
+// Renvoie le premier film avec la durée recherché
+struct Film* getFilmByTime(struct Film* f, int time){
+    if(f != NULL){
+        struct Film* iter = f;
+        if(getTime(f) == time){
+            return iter;
+        }
+        while(getNext(iter) != NULL){
+            iter = getNext(iter);
+            if(getTime(f) == time){
+                return iter;
+            }
+        }
+    }
+    return NULL;
+}
+
+// Renvoie la durée du film le plus long
+int longestFilm(struct Film* f){
+    int max = getTime(f);
+    struct Film* iter = f;
+    while (iter->next != NULL){
+        iter = iter->next;
+        if(getTime(iter) > max){
+            max = getTime(iter);
+        }
+    }
+    return max;
+}
+
 // Affiche les film a la suite
 void printFilm(struct Film* f){
     if (f == NULL) {
@@ -96,10 +129,10 @@ void printFilm(struct Film* f){
     struct Film* iter = f;
 
     while (iter->next != NULL) {
-        printf("%s;%s;%d -> ", iter->title, iter->type, iter->time);
+        printf("%s;%s;%s;%d -> ", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
         iter = iter->next;
     }
-    printf("%s;%s;%d -> NULL\n", iter->title, iter->type, iter->time);
+    printf("%s;%s;%s;%d -> NULL\n", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
 }
 
 // Suprime le premier film
@@ -114,7 +147,7 @@ struct Film* deleteFirst(struct Film* f){
 }
 
 // Suprime un film par son titre
-struct Film* deleteFilmByTitle(struct Film* f, char* title[MAXTITLE]){
+struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]){
     struct Film* iter = f;
     struct Film* suprFilm;
     if (strcmp(getTitle(iter), title) == 0) {
@@ -126,16 +159,19 @@ struct Film* deleteFilmByTitle(struct Film* f, char* title[MAXTITLE]){
         suprFilm = iter->next;
         iter->next = iter->next->next;
         free(suprFilm);
+        f->size = f->size - 1;
     }
     return f;
 }
 
 // Suprime tous les films
 void deleteFilms(struct Film** f){
-    struct Film* iter = *f;
-    while(iter->next != NULL){
-        iter = deleteFirst(iter);
+    if(*f != NULL) {
+        struct Film *iter = *f;
+        while (iter->next != NULL) {
+            iter = deleteFirst(iter);
+        }
+        deleteFirst(iter);
+        *f = NULL;
     }
-    deleteFirst(iter);
-    *f = NULL;
 }

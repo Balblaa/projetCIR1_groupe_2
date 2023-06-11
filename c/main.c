@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
 #include "film.h"
+#include "realisateur.h"
+#include "filmotheque.h"
 
 int main() {
     struct Film* f = createFilm("rasta kekette", "humour", 95);
@@ -12,6 +9,5 @@ int main() {
     addFilm(f, "alcoolisme", "drame", 78);
     addFilm(f, "les victoire de ssm", "horreur", 199);
     printFilm(f);
-    printFilm(getFilmByType(f,"action"));
-    printFilm(f);
+    printFilm(getFilmByType(f, "action"));
 }

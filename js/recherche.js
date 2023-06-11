@@ -7,8 +7,8 @@ function research(){
     if(dureeMovie.length!==0){
         writeFile('formRequest','readFileByName');
     }
-    if(authorName.length===0 && dureeMovie.length===0){
-        writeFile('coucou','fonction qui affiche les films');
+    if(authorName==="" && dureeMovie===""){
+        printMovies();
     }
 }
 // fonction qui permet d'écrire dans un fichier
@@ -122,22 +122,27 @@ function printMovies(){
     
     // Récupération de la référence à l'élément de tableau HTML avec l'ID "moviesTable"
     let table = document.getElementById("moviesTable");
-    
     // Parcours de chaque film dans le tableau moviesArray
     for(let i = 0; i < moviesArray.length; i++){
         // Séparation des données du film en utilisant le point-virgule comme séparateur
         let movie = moviesArray[i].split(";");
         
         // Insertion d'une nouvelle ligne dans le tableau HTML
-        let row = table.insertRow("table", i+1);
+        let row = table.insertRow(i+1);
         
         // Insertion de deux cellules dans la nouvelle ligne pour afficher les données du film
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
         
         // Remplissage des cellules avec les données du film
         cell1.innerHTML = movie[0];
         cell2.innerHTML = movie[1];
+        cell3.innerHTML = movie[2];
+        cell4.innerHTML = movie[3];     
     }
+    return moviesArray;
 }
 printMovies();
+

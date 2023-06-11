@@ -20,14 +20,10 @@ body{
 }
 
 #body{
-    display : flex;
-    flex-direction : column;
-    justify-content : center;
-    align-items : center;
     background-color: #333333;
     color: white;
     padding: 100px;
-    text-align: center;
+    text-align: center; 
     margin: 10px;
 }
 .form{

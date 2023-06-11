@@ -4,13 +4,15 @@
 CMakeFiles/c.dir/film.c.o: ../film.c
 CMakeFiles/c.dir/film.c.o: ../film.h
 
-CMakeFiles/c.dir/filmotheque.c.o: ../Realisateur.h
 CMakeFiles/c.dir/filmotheque.c.o: ../film.h
 CMakeFiles/c.dir/filmotheque.c.o: ../filmotheque.c
 CMakeFiles/c.dir/filmotheque.c.o: ../filmotheque.h
+CMakeFiles/c.dir/filmotheque.c.o: ../realisateur.h
 
 CMakeFiles/c.dir/main.c.o: ../film.h
+CMakeFiles/c.dir/main.c.o: ../filmotheque.h
 CMakeFiles/c.dir/main.c.o: ../main.c
+CMakeFiles/c.dir/main.c.o: ../realisateur.h
 
 CMakeFiles/c.dir/realisateur.c.o: ../film.h
 CMakeFiles/c.dir/realisateur.c.o: ../realisateur.c

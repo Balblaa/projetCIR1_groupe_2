@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/c.dir/filmotheque.c.o"
   "CMakeFiles/c.dir/film.c.o"
   "CMakeFiles/c.dir/realisateur.c.o"
+  "CMakeFiles/c.dir/listChrono.c.o"
   "c.pdb"
   "c"
 )

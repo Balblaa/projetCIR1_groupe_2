@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/Realisateur.h
-stdio.h
--
-stdlib.h
--
-string.h
--
-stdbool.h
--
-film.h
-/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.h
-
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.c
 stdio.h
 -
@@ -41,16 +29,12 @@ stdbool.h
 -
 
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-stdbool.h
--
+realisateur.h
+/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/realisateur.h
 filmotheque.h
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.h
+film.h
+/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.h
 
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.h
 stdio.h
@@ -61,20 +45,16 @@ string.h
 -
 stdbool.h
 -
-Realisateur.h
-/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/Realisateur.h
+realisateur.h
+/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/realisateur.h
 
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/main.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-stdbool.h
--
 film.h
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/film.h
+realisateur.h
+/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/realisateur.h
+filmotheque.h
+/mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/filmotheque.h
 
 /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/realisateur.c
 realisateur.h
