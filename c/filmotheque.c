@@ -79,3 +79,42 @@ void deleteFilmothque(struct Filmotheque** ft){
     free(*ft);
     *ft = NULL;
 }
+
+// Renvoie un fichier result.txt avec les Films cherché par auteur
+void searchByAuthor(struct Filmotheque* ft, char* realisateur){
+    FILE* fichier;
+    FILE* ready;
+    fichier = fopen("../html/result.txt", "w");
+
+    struct Realisateur* r = findRealisateur(ft->r, realisateur);
+    char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
+    struct Film* iter;
+    int nb_film;
+
+    if(isRealisateur(r) && r->film != NULL){
+        iter = r->film;
+        nb_film = iter->size;
+        for(int i=0; i<nb_film; i++){
+            strcat(texte, getAuthor(iter));
+            strcat(texte, ";");
+            strcat(texte, getTitle(iter));
+            strcat(texte, ";");
+            strcat(texte, getTime(iter));
+            strcat(texte, ";");
+            strcat(texte, getType(iter));
+            strcat(texte, "\n");
+            fputs(texte, fichier);
+            iter = iter->next;
+            for(int lettre=0; lettre<MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++){
+                texte[lettre] = '\0';
+            }
+        }
+    }
+
+    fclose(fichier);
+    ready = fopen("../html/ready.txt", "w");
+    fclose(ready);
+}
+
+// Renvoie un fichier result.txt avec les Films cherché pas temps
+void searchByTime(struct Filmotheque* ft, int time);

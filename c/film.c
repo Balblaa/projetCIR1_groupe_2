@@ -5,13 +5,13 @@
 #include "film.h"
 
 // crée un film avec les données en paramètre.
-struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE],char author[MAXAUTHOR], int time){
+struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE],char author[MAXAUTHOR], char* time){
     struct Film* f = malloc(sizeof (struct Film));
     if(f != NULL){
         strcpy(f->title, title);
         strcpy(f->type, type);
         strcpy(f->author, author);
-        f->time = time;
+        strcpy(f->time, time);
         f->size = 1;
         f->next = NULL;
     }
@@ -51,7 +51,7 @@ char* getType(struct Film* f){
 }
 
 // Renvoie le temps du film
-int getTime(struct Film* f){
+char* getTime(struct Film* f){
     return f->time;
 }
 
@@ -94,12 +94,12 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
 struct Film* getFilmByTime(struct Film* f, int time){
     if(f != NULL){
         struct Film* iter = f;
-        if(getTime(f) == time){
+        if(atoi(getTime(f)) == time){
             return iter;
         }
         while(getNext(iter) != NULL){
             iter = getNext(iter);
-            if(getTime(f) == time){
+            if(atoi(getTime(f)) == time){
                 return iter;
             }
         }
@@ -109,12 +109,12 @@ struct Film* getFilmByTime(struct Film* f, int time){
 
 // Renvoie la durée du film le plus long
 int longestFilm(struct Film* f){
-    int max = getTime(f);
+    int max = atoi(getTime(f));
     struct Film* iter = f;
     while (iter->next != NULL){
         iter = iter->next;
-        if(getTime(iter) > max){
-            max = getTime(iter);
+        if(atoi(getTime(iter)) > max){
+            max = atoi(getTime(iter));
         }
     }
     return max;
@@ -129,10 +129,10 @@ void printFilm(struct Film* f){
     struct Film* iter = f;
 
     while (iter->next != NULL) {
-        printf("%s;%s;%s;%d -> ", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
+        printf("%s;%s;%s;%s -> ", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
         iter = iter->next;
     }
-    printf("%s;%s;%s;%d -> NULL\n", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
+    printf("%s;%s;%s;%s -> NULL\n", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
 }
 
 // Suprime le premier film

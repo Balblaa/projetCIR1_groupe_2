@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c
+CMAKE_SOURCE_DIR = /mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,11 +67,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/cmake-build-debug/CMakeFiles /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug/CMakeFiles /mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named c
+# Target rules for targets named Perso
 
 # Build rule for target.
-c : cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 c
-.PHONY : c
+Perso: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Perso
+.PHONY : Perso
 
 # fast build rule for target.
-c/fast:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/build
-.PHONY : c/fast
+Perso/fast:
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/build
+.PHONY : Perso/fast
 
 film.o: film.c.o
 
@@ -129,7 +129,7 @@ film.o: film.c.o
 
 # target to build an object file
 film.c.o:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/film.c.o
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/film.c.o
 .PHONY : film.c.o
 
 film.i: film.c.i
@@ -138,7 +138,7 @@ film.i: film.c.i
 
 # target to preprocess a source file
 film.c.i:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/film.c.i
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/film.c.i
 .PHONY : film.c.i
 
 film.s: film.c.s
@@ -147,7 +147,7 @@ film.s: film.c.s
 
 # target to generate assembly for a file
 film.c.s:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/film.c.s
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/film.c.s
 .PHONY : film.c.s
 
 filmotheque.o: filmotheque.c.o
@@ -156,7 +156,7 @@ filmotheque.o: filmotheque.c.o
 
 # target to build an object file
 filmotheque.c.o:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/filmotheque.c.o
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/filmotheque.c.o
 .PHONY : filmotheque.c.o
 
 filmotheque.i: filmotheque.c.i
@@ -165,7 +165,7 @@ filmotheque.i: filmotheque.c.i
 
 # target to preprocess a source file
 filmotheque.c.i:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/filmotheque.c.i
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/filmotheque.c.i
 .PHONY : filmotheque.c.i
 
 filmotheque.s: filmotheque.c.s
@@ -174,7 +174,7 @@ filmotheque.s: filmotheque.c.s
 
 # target to generate assembly for a file
 filmotheque.c.s:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/filmotheque.c.s
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/filmotheque.c.s
 .PHONY : filmotheque.c.s
 
 listChrono.o: listChrono.c.o
@@ -183,7 +183,7 @@ listChrono.o: listChrono.c.o
 
 # target to build an object file
 listChrono.c.o:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/listChrono.c.o
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/listChrono.c.o
 .PHONY : listChrono.c.o
 
 listChrono.i: listChrono.c.i
@@ -192,7 +192,7 @@ listChrono.i: listChrono.c.i
 
 # target to preprocess a source file
 listChrono.c.i:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/listChrono.c.i
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/listChrono.c.i
 .PHONY : listChrono.c.i
 
 listChrono.s: listChrono.c.s
@@ -201,7 +201,7 @@ listChrono.s: listChrono.c.s
 
 # target to generate assembly for a file
 listChrono.c.s:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/listChrono.c.s
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/listChrono.c.s
 .PHONY : listChrono.c.s
 
 main.o: main.c.o
@@ -210,7 +210,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/main.c.o
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -219,7 +219,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/main.c.i
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -228,7 +228,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/main.c.s
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/main.c.s
 .PHONY : main.c.s
 
 realisateur.o: realisateur.c.o
@@ -237,7 +237,7 @@ realisateur.o: realisateur.c.o
 
 # target to build an object file
 realisateur.c.o:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/realisateur.c.o
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/realisateur.c.o
 .PHONY : realisateur.c.o
 
 realisateur.i: realisateur.c.i
@@ -246,7 +246,7 @@ realisateur.i: realisateur.c.i
 
 # target to preprocess a source file
 realisateur.c.i:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/realisateur.c.i
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/realisateur.c.i
 .PHONY : realisateur.c.i
 
 realisateur.s: realisateur.c.s
@@ -255,7 +255,7 @@ realisateur.s: realisateur.c.s
 
 # target to generate assembly for a file
 realisateur.c.s:
-	$(MAKE) -f CMakeFiles/c.dir/build.make CMakeFiles/c.dir/realisateur.c.s
+	$(MAKE) -f CMakeFiles/Perso.dir/build.make CMakeFiles/Perso.dir/realisateur.c.s
 .PHONY : realisateur.c.s
 
 # Help Target
@@ -264,9 +264,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... c"
+	@echo "... rebuild_cache"
+	@echo "... Perso"
 	@echo "... film.o"
 	@echo "... film.i"
 	@echo "... film.s"

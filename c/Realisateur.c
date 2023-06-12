@@ -242,7 +242,7 @@ struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
     char realisateur[MAXAUTHOR];
     char title[MAXTITLE];
     char type[MAXTYPE];
-    char time[3];
+    char time[4];
     int counter = 0;
     int index = 0;
 
@@ -250,7 +250,7 @@ struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
         char c = fgetc(fichier);
         if (c == '\n') {
             type[index-1] = '\0';
-            struct Film* f = createFilm(title, type, realisateur, atoi(time));
+            struct Film* f = createFilm(title, type, realisateur, time);
             insertFilm(r, f);
             counter = 0;
             index = 0;

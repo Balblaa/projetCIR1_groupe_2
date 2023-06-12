@@ -14,13 +14,13 @@ struct Film{
     char author[MAXAUTHOR];
     char title[MAXTITLE];
     char type[MAXTYPE];
-    int time;
+    char time[4];
     int size;
     struct Film* next;
 };
 
 // crée un film avec les données en paramètre.
-struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE], char author[MAXAUTHOR], int time);
+struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE], char author[MAXAUTHOR], char time[4]);
 
 // ajoute un film données en paramètre a la suite d'un autre.
 struct Film* addFilm(struct Film* f, struct Film* newf);
@@ -38,7 +38,7 @@ char* getTitle(struct Film* f);
 char* getType(struct Film* f);
 
 // Renvoie le temps du film
-int getTime(struct Film* f);
+char* getTime(struct Film* f);
 
 // Renvoie le premier film avec le titre recherché
 struct Film* getFilmByTitle(struct Film* f, char* title);

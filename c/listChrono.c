@@ -30,7 +30,7 @@ void buildListFromtxt(struct ListChrono* listFilm, char* nomfichier){
         char c = fgetc(fichier);
         if (c == '\n') {
             type[index-1] = '\0';
-            struct Film* f = createFilm(title, type, realisateur, atoi(time));
+            struct Film* f = createFilm(title, type, realisateur, time);
             addFilmToList(listFilm, f);
             counter = 0;
             index = 0;
@@ -85,11 +85,11 @@ void buildListFromtxt(struct ListChrono* listFilm, char* nomfichier){
 
 // Rajoute un film dans la liste
 void addFilmToList(struct ListChrono* listFilm, struct Film* f){
-    if(listFilm->list[f->time-1] == NULL){
-        listFilm->list[f->time-1] = f;
+    if(listFilm->list[atoi(f->time)-1] == NULL){
+        listFilm->list[atoi(f->time)-1] = f;
     }
     else {
-        listFilm->list[f->time-1] = addFilm(listFilm->list[f->time-1], f);
+        listFilm->list[atoi(f->time)-1] = addFilm(listFilm->list[atoi(f->time)-1], f);
     }
 }
 
