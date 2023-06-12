@@ -52,5 +52,4 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur);
 
 // Renvoie un fichier result.txt avec les Films cherché pas temps
 void searchByTime(struct Filmotheque* ft, int time);
-
 #endif //C_FILMOTHEQUE_H

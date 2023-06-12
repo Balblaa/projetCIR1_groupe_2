@@ -18,7 +18,7 @@ function research(){
     if(categorieMovie.length!==0){
         writeFile(categorieMovie,'readFileByCategorie');
     }
-    if(authorName==="" && dureeMovie===""){
+    if(authorName==="" && nameMovie==="" && categorieMovie==="" && dureeMovie===""){
         printMovies();
     }
 }
@@ -154,5 +154,5 @@ function printMovies(){
     }
     return moviesArray;
 }
-printMovies();
+
 
