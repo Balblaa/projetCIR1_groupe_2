@@ -73,6 +73,7 @@ struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]){
 }
 
 // Renvoie le premier film avec le type recherché
+//!!!seg fault!!!!
 struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
     if(f != NULL){
         struct Film* iter = f;

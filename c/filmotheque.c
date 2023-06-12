@@ -1,5 +1,6 @@
 #include "realisateur.h"
 #include "filmotheque.h"
+#include "listChrono.h"
 #include "film.h"
 
 // Operation de création de la filmotheque
@@ -78,4 +79,3 @@ void deleteFilmothque(struct Filmotheque** ft){
     free(*ft);
     *ft = NULL;
 }
-
