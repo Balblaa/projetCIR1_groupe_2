@@ -28,28 +28,36 @@
                 <form id="research" onsubmit="research(event)">
                     <div id="searchbar">
                         <div class="form">
-                            <div>
-                                <a id="realisateurError"></a>
-                            </div>
-                            <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">
+                            <form id="real">
+                                <div>
+                                    <a id="realisateurError"></a>
+                                </div>
+                                <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">    
+                            </form>
                         </div>
                         <div class="form">
-                            <div>
-                                <a id="dureeError"></a>
-                            </div>
-                            <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
+                            <form class="form" id="temps">
+                                <div>
+                                    <a id="dureeError"></a>
+                                </div>
+                                <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
+                            </form>
                         </div>
                         <div class="form">
-                            <div>
-                                <a id="filmError"></a>
-                            </div>
-                            <input type="text" name="search" placeholder="Rechercher film" id="film" class="form">
+                            <form class="form" id="nomFilm">
+                                <div>
+                                    <a id="filmError"></a>
+                                </div>
+                                <input type="text" name="search" placeholder="Rechercher film" id="film" class="form">
+                            </form>
                         </div>
                         <div class="form">
-                            <div>
-                                <a id="categorieError"></a>
-                            </div>
-                            <input type="text" name="search" placeholder="Rechercher catégorie" id="categorie" class="form">
+                            <form class="form" id="genre">
+                                <div>
+                                    <a id="categorieError"></a>
+                                </div>
+                                <input type="text" name="search" placeholder="Rechercher catégorie" id="categorie" class="form">
+                            </form>
                         </div>
                     </div>
                     <div id="buttons">
