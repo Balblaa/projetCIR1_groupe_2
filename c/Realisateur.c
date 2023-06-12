@@ -186,7 +186,7 @@ bool isRealisateurExist(struct Realisateur* r,char* realisateur){
     return r->isRealisateur;
 }
 
-// Affiche les réalisateur
+// Affiche les réalisateurs
 void displayRealisateurs(struct Realisateur* r, char* realisateur, int index){
     if(isRealisateur(r)){
         realisateur[index] = '\0';
@@ -231,7 +231,7 @@ void deleteRealisateurs(struct Realisateur** r){
     }
 }
 
-// Construie un arbre avec les réalisateur ainsi que les film a partir d'un txt
+// Construie un arbre avec les réalisateurs ainsi que les films à partir d'un txt
 struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
 
     FILE* fichier;

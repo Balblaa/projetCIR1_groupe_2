@@ -1,12 +1,8 @@
-#include "film.h"
-#include "realisateur.h"
 #include "filmotheque.h"
 
 int main() {
 
-    struct Filmotheque* ft = createFilmotheque("../../../BD_medium.txt");
-
-    deleteFilmFromFilmotheque(ft, "leandron", "Joan of Arc of Dark Health");
+    struct Filmotheque* ft = createFilmotheque("../../BD_medium.txt");
 
     printFilmotheque(ft);
     deleteFilmothque(&ft);
