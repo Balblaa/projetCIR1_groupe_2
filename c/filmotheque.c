@@ -83,6 +83,7 @@ void searchByTime(struct Filmotheque* ft,int time){
     FILE* fichier;
     fichier= fopen("../../html/result.txt","w");
     while(ft->listFilmByChrono->list[time-1]->next!=NULL){
+        int iter;
         struct Film* f=getFilmByListChrono(ft,time);
         char* texte=[MAXAUTHOR + MAXTITLE + MAXTYPE] = "%s%s%d",f->author f->title f->time;
         fputs(texte,fichier);
