@@ -88,7 +88,8 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     fichier = fopen("../html/results.txt", "w");
 
     struct Realisateur* r = findRealisateur(ft->r, realisateur);
-    char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
+    char texte[
+        MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
     struct Film* iter;
     int nb_film;
 
