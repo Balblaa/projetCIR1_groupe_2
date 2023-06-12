@@ -9,15 +9,19 @@ function research(event){
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
         writeFile('research','searchByAuthor');
+        printMovies();
     }
     if(dureeMovie.length!==0){
         writeFile('research','searchByTime');
+        printMovies();
     }
     if(nameMovie.length!==0){
         writeFile('research','searchByTitle');
+        printMovies();
     }
     if(categorieMovie.length!==0){
         writeFile('research','searchByType');
+        printMovies();
     }
     if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
         printMovies();
@@ -118,10 +122,6 @@ document.getElementById("genre").addEventListener("input", validateForm);
 validateForm();
 
 // fonction qui permet de lire un fichier
-function readFile(){
-    readFileByName("ready.txt");
-    return readFileByName("results.txt");
-}
 function readFileByName(fileName){
 
     let xhr = new XMLHttpRequest();
@@ -134,11 +134,18 @@ function readFileByName(fileName){
     // assumes status 200
     return xhr.responseText;
 }
+
+function readFile(){
+    readFileByName("ready.txt");
+    return readFileByName("results.txt");
+}
+
 //fonction pour insérer une nouvelle place pour une catégorie film
 function insertCell(row, cellNumber, text){
     let cell = row.insertCell(cellNumber);
     cell.innerHTML = text;
 }
+
 //fonction pour insérer une nouvelle place pour un film
 function insertRow(table, rowNumber){
     let row = table.insertRow(rowNumber);
