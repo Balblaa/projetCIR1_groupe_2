@@ -10,7 +10,7 @@ int main() {
     //création du temps de
     clock_t begin = clock();
 
-    struct Filmotheque* ft = createFilmotheque("../../BD_medium.txt");
+    struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
 
     clock_t end = clock();
     double time_spent = (double)(end - begin);
