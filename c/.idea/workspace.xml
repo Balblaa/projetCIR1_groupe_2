@@ -20,11 +20,22 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="correction addFirst film.c">
+    <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="fin filmotheque.c">
+      <change afterPath="$PROJECT_DIR$/listChrono.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realisateur.c" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realisateur.h" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/film.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/film.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/filmotheque.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/filmotheque.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/c.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/c.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/film.c" beforeDir="false" afterPath="$PROJECT_DIR$/film.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/film.h" beforeDir="false" afterPath="$PROJECT_DIR$/film.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmotheque.c" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmotheque.h" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +83,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/vdron/Documents/Travail/algo/pratique/TP14_Dronne",
+    "last_opened_file_path": "C:/Users/vdron/Documents/Travail/algo/pratique/TP7_Dronne",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -124,7 +135,7 @@
       <workItem from="1686405910188" duration="4339000" />
       <workItem from="1686411048468" duration="14432000" />
       <workItem from="1686440869031" duration="3179000" />
-      <workItem from="1686477818245" duration="24129000" />
+      <workItem from="1686477818245" duration="34136000" />
     </task>
     <task id="LOCAL-00001" summary="fin de film">
       <created>1686303808802</created>
@@ -182,7 +193,70 @@
       <option name="project" value="LOCAL" />
       <updated>1686319210418</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fin correction de film.c">
+      <created>1686320988298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686320988298</updated>
+    </task>
+    <task id="LOCAL-00010" summary="brouillons realisateur">
+      <created>1686400807015</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686400807015</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fonction realisateur propre, changement de la structure film">
+      <created>1686409096332</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686409096332</updated>
+    </task>
+    <task id="LOCAL-00012" summary="tout bug corriger, manque juste buildRealisateurFromTxt">
+      <created>1686412187478</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686412187478</updated>
+    </task>
+    <task id="LOCAL-00013" summary="buildrealisateurfromtxt test 1">
+      <created>1686440898946</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686440898946</updated>
+    </task>
+    <task id="LOCAL-00014" summary="buildrealisateurfromtxt fonctionnel">
+      <created>1686442757022</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686442757022</updated>
+    </task>
+    <task id="LOCAL-00015" summary="buildrealisateurfromtxt sauf le valgrind">
+      <created>1686482679977</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686482679977</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ajout des caractère &quot;'&quot; et ' '">
+      <created>1686489948785</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686489948785</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fin filmotheque.c">
+      <created>1686497694864</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686497694864</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,9 +296,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.c</url>
-          <line>14</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/filmotheque.c</url>
+          <line>96</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

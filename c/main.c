@@ -3,11 +3,20 @@
 #include "filmotheque.h"
 
 int main() {
-    struct Film* f = createFilm("rasta kekette", "humour", 95);
-    addFilm(f, "le petit garcon au pyjama rayé", "humour", 150);
-    addFilm(f, "le sang de dieu", "action", 69);
-    addFilm(f, "alcoolisme", "drame", 78);
-    addFilm(f, "les victoire de ssm", "horreur", 199);
-    printFilm(f);
-    printFilm(getFilmByType(f, "action"));
+
+    struct Filmotheque* ft = createFilmotheque("../../../BD_medium.txt");
+
+    deleteFilmFromFilmotheque(ft, "leandron", "Joan of Arc of Dark Health");
+
+    printFilmotheque(ft);
+    deleteFilmothque(&ft);
+
+
+    /*
+    FILE* fichier;
+    fichier = fopen("../../html/result.txt", "w");
+    char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = "bien le bonsoir\n";
+    fputs(texte, fichier);
+
+    fclose(fichier);*/
 }

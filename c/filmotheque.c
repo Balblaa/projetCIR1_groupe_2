@@ -14,88 +14,10 @@ struct Filmotheque* createFilmotheque(char* nomfichier){
         strcpy(ft->realisateurProductif, best->film->author);
         ft->plusLongFilm = findlongestFilm(ft->r);
 
-        ft->filmParChrnono = ;
+        ft->listFilmByChrono = createList(ft->plusLongFilm);
+        buildListFromtxt(ft->listFilmByChrono, nomfichier);
     }
-}
-
-// Créer la liste des films rangés par chrono
-void createListFilmChrono(struct Filmotheque* ft, char* nomfichier){
-    FILE* fichier;
-    fichier = fopen(nomfichier, "r");
-
-    struct Film* list[ft->plusLongFilm];
-    for(int i = 0; i<ft->plusLongFilm; i++){
-        list[i] = NULL;
-    }
-
-    char realisateur[MAXAUTHOR];
-    char title[MAXTITLE];
-    char type[MAXTYPE];
-    char time[4];
-    int counter = 0;
-    int index = 0;
-
-    while(!feof(fichier)) {
-        char c = fgetc(fichier);
-        if (c == '\n') {
-            type[index-1] = '\0';
-            struct Film* f = createFilm(title, type, realisateur, atoi(time));
-            if(list[f->time] == NULL){
-                list[f->time] = f;
-            }
-            else {
-                list[f->time] = addFilm(list[f->time], f);
-            }
-            counter = 0;
-            index = 0;
-        }
-        else if (c == ';') {
-            switch (counter) {
-                case 0:
-                    realisateur[index] = '\0';
-                    counter++;
-                    index = 0;
-                    break;
-                case 1:
-                    title[index] = '\0';
-                    counter++;
-                    index = 0;
-                    break;
-                case 2:
-                    time[index] = '\0';
-                    counter++;
-                    index = 0;
-                    break;
-            }
-        } else {
-            switch (counter) {
-                case 0:
-                    if(c >= 'A' && c <= 'Z'){
-                        realisateur[index] = c + 32;
-                    }
-                    else {
-                        realisateur[index] = c;
-                    }
-                    index++;
-                    break;
-                case 1:
-                    title[index] = c;
-                    index++;
-                    break;
-                case 2:
-                    time[index] = c;
-                    index++;
-                    break;
-                case 3:
-                    type[index] = c;
-                    index++;
-                    break;
-            }
-        }
-    }
-
-    fclose(fichier);
-    ft->filmParChrnono = list;
+    return ft;
 }
 
 // Renvoie le nombre de film du réalisateur ayant le plus de film
@@ -111,6 +33,11 @@ int getPlusLongFilm(struct Filmotheque* ft){
 // Renvoie le nom du réalisateur avec le plus de film
 char* getRealisateurProductif(struct Filmotheque* ft){
     return ft->realisateurProductif;
+}
+
+// Renvoie un film en fonction d'une durée
+struct Film* getFilmByListChrono(struct Filmotheque* ft, int time){
+    return ft->listFilmByChrono->list[time-1];
 }
 
 // Permet de rajouter un Film
@@ -136,7 +63,8 @@ bool isAuthorExist(struct Filmotheque* ft,char* author){
 }
 
 // Surpimer un film avec le nom du réalisateur et le titre
-void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* title){
+void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* title, int time){
+    deleteFilmFromListChrono(ft->listFilmByChrono, time, title);
     deleteFilmFromRealisateur(ft->r, realisateur, title);
     struct Realisateur* best = bestRealisateur(ft->r);
     ft->maxFilm = best->film->size;
@@ -145,6 +73,7 @@ void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* 
 
 //supprimer la structure
 void deleteFilmothque(struct Filmotheque** ft){
+    deleteListChrono(&(*ft)->listFilmByChrono);
     deleteRealisateurs(&(*ft)->r);
     free(*ft);
     *ft = NULL;
