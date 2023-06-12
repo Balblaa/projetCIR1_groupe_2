@@ -1,23 +1,23 @@
 function research(event){
     event.preventDefault();
     //on récupère les éléments du formulaire
-    let authorName=document.getElementById("real").value;
-    let dureeMovie=document.getElementById("temps").value;
-    let nameMovie=document.getElementById("nomFilm").value;
+    let authorName=document.getElementById("realisateur").value;
+    let dureeMovie=document.getElementById("duree").value;
+    let nameMovie=document.getElementById("titre").value;
     let categorieMovie=document.getElementById("genre").value;
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
-        writeFile('realisateur','readFileByName');
+        writeFile('research','readFileByName');
     }
     if(dureeMovie.length!==0){
-        writeFile('duree','readFileByDuree');
+        writeFile('research','readFileByDuree');
     }
     if(nameMovie.length!==0){
-        writeFile('film','readFileByNameOfFilm');
+        writeFile('research','readFileByNameOfFilm');
     }
     if(categorieMovie.length!==0){
-        writeFile('categorie','readFileByCategorie');
+        writeFile('research','readFileByCategorie');
     }
     if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
         printMovies();
@@ -25,13 +25,12 @@ function research(event){
 }
 // fonction qui permet d'écrire dans un fichier
 function writeFile(id_form,func) {
-    console.log("id_form");
-
     var element = document.createElement('a');
 
     let text1 = document.getElementById(id_form);
     let count = text1.elements.length;
     let textToSave = func;
+    console.log(text1);
     for(let i = 0;i<count-1;i++){
         textToSave += ";" + text1[i].value;
     }
@@ -44,15 +43,15 @@ function writeFile(id_form,func) {
     element.click();
     document.body.removeChild(element);
 
-    text1.submit();
+  //  text1.submit();
 }
 
 function validateForm() {
     //Récupérer les valeurs des champs
     let realisateur = document.getElementById("realisateur").value;
     let duree = document.getElementById("duree").value;
-    let film = document.getElementById("film").value;
-    let categorie = document.getElementById("categorie").value;
+    let film = document.getElementById("titre").value;
+    let categorie = document.getElementById("genre").value;
 
     //Définir les expressions régulières
     let realisateurRegex = /^[a-zA-Z \-\']+$/;
@@ -72,8 +71,8 @@ function validateForm() {
     let submitBtn = document.getElementById("submitBtn");
     let realisateurError = document.getElementById("realisateurError");
     let dureeError = document.getElementById("dureeError");
-    let filmError = document.getElementById("filmError");
-    let categorieError = document.getElementById("categorieError");
+    let filmError = document.getElementById("titreError");
+    let categorieError = document.getElementById("genreError");
 
 
     //Afficher les messages d'erreur 
@@ -112,8 +111,8 @@ function validateForm() {
 // appeler la fonction validateForm à chaque fois qu'un champ est modifié
 document.getElementById("realisateur").addEventListener("input", validateForm);
 document.getElementById("duree").addEventListener("input", validateForm);
-document.getElementById("film").addEventListener("input", validateForm);
-document.getElementById("categorie").addEventListener("input", validateForm);
+document.getElementById("titre").addEventListener("input", validateForm);
+document.getElementById("genre").addEventListener("input", validateForm);
 
 //Appeler la fonction validateForm au chargement de la page
 validateForm();
