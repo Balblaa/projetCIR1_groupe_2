@@ -23,13 +23,10 @@
     <list default="true" id="98986d9e-6e12-4312-9b46-9dd440afb589" name="Changes" comment="filmotheque.h ajout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realisateur.c" beforeDir="false" afterPath="$PROJECT_DIR$/Realisateur.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batterie" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/film.c" beforeDir="false" afterPath="$PROJECT_DIR$/film.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/film.h" beforeDir="false" afterPath="$PROJECT_DIR$/film.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmotheque.c" beforeDir="false" afterPath="$PROJECT_DIR$/filmotheque.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listChrono.c" beforeDir="false" afterPath="$PROJECT_DIR$/listChrono.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/c.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" afterPath="$PROJECT_DIR$/test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/vdron/Documents/Travail/algo/pratique/Perso",
+    "last_opened_file_path": "C:/Users/vdron/Documents/Travail/algo/pratique/projet/projetCIR1_groupe_2/c",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,7 +82,7 @@
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C/C++ File.main.c (1)">
     <configuration name="c" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="c" TARGET_NAME="c" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="c" RUN_TARGET_NAME="c">
       <method v="2">
@@ -134,7 +131,7 @@
       <workItem from="1686440869031" duration="3179000" />
       <workItem from="1686477818245" duration="34483000" />
       <workItem from="1686553254351" duration="51000" />
-      <workItem from="1686553322220" duration="5681000" />
+      <workItem from="1686553322220" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary="fin de film">
       <created>1686303808802</created>
@@ -276,21 +273,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686520669214</updated>
     </task>
-    <task id="LOCAL-00021" summary="commit de test">
-      <created>1686553929648</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1686553929648</updated>
-    </task>
-    <task id="LOCAL-00022" summary="filmotheque.h ajout">
-      <created>1686555081644</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1686555081644</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

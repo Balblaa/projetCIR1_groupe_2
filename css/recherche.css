@@ -15,8 +15,9 @@ body{
     height: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
     justify-content: center;
-    align-items: center;
 }
 
 #body{
@@ -28,9 +29,10 @@ body{
 }
 .form{
     margin-bottom : 100px;
-    margin-left : 50px;
-    margin-right : 50px;
+    margin-left : 15px;
+    margin-right : 15px;
     padding : 20px;
+
 }
 
 
@@ -43,8 +45,13 @@ body{
     width: 100px;
     height: 40px;
     text-align: center;
+    margin-bottom: 20px; 
 }
 
 .btn-notvalid{
     background-color: #7d7d7d;
+}
+table, th, td { 
+    border: 1px solid black;
+    border-color: white;
 }
