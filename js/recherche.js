@@ -192,6 +192,11 @@ function printMovies(){
     return moviesArray;
 }
 
+function deleteFiles(){
+    writeFile("delete", "stopprocess");
+    return readFileByName("ready.txt");
+}
+
 function insererFilm(){
     let realisateur = document.getElementById("realisateur").value;
     let duree = document.getElementById("duree").value;
