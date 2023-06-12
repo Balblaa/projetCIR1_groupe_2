@@ -28,43 +28,35 @@
                 <form id="research" onsubmit="research(event)">
                     <div id="searchbar">
                         <div class="form">
-                            <form id="real">
-                                <div>
-                                    <a id="realisateurError"></a>
-                                </div>
-                                <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">    
-                            </form>
+                            <div>
+                                <a id="realisateurError"></a>
+                            </div>
+                            <input type="text" name="search" placeholder="Rechercher réalisateur" id="realisateur" class="form">
                         </div>
                         <div class="form">
-                            <form class="form" id="temps">
-                                <div>
-                                    <a id="dureeError"></a>
-                                </div>
-                                <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
-                            </form>
+                            <div>
+                                <a id="titreError"></a>
+                            </div>
+                            <input type="text" name="search" placeholder="Rechercher titre" id="titre" class="form">
                         </div>
                         <div class="form">
-                            <form class="form" id="nomFilm">
-                                <div>
-                                    <a id="filmError"></a>
-                                </div>
-                                <input type="text" name="search" placeholder="Rechercher film" id="film" class="form">
-                            </form>
+                            <div>
+                                <a id="dureeError"></a>
+                            </div>
+                            <input type="text" name="search" placeholder="Rechercher une durée" id="duree" class="form">
                         </div>
                         <div class="form">
-                            <form class="form" id="genre">
-                                <div>
-                                    <a id="categorieError"></a>
-                                </div>
-                                <input type="text" name="search" placeholder="Rechercher catégorie" id="categorie" class="form">
-                            </form>
-                        </div>
+                            <div>
+                                <a id="genreError"></a>
+                            </div>
+                            <input type="text" name="search" placeholder="Rechercher genre" id="genre" class="form">
+                        </div> 
                     </div>
-                    <div id="buttons">
-                        <input type="submit" onclick="research(event)" id="submitBtn" value="Confirmer" class="button">
-                        <input type="reset" onclick="stopProcess()" value="Réinitialiser" class="button">
+                    <div id="button">
+                        <input type="submit" onclick="research()" id="submitBtn" value="Rechercher" class="button">
                     </div>
                 </form>
+                <input type="submit" onclick="stopProcess()" value="supprimer" class="button">
             </div>
             <div>
                 <table id="moviesTable">
