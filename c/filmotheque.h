@@ -47,7 +47,10 @@ void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* 
 //supprimer la structure
 void deleteFilmothque(struct Filmotheque** ft);
 
-// Renvoie un fichier result.txt avec les Films cherché par Titre
-void searchByAuthor(struct Filmotheque* ft);
+// Renvoie un fichier result.txt avec les Films cherché par réalisateur
+void searchByAuthor(struct Filmotheque* ft, char* realisateur);
+
+// Renvoie un fichier result.txt avec les Films cherché pas temps
+void searchByTime(struct Filmotheque* ft, int time);
 
 #endif //C_FILMOTHEQUE_H
