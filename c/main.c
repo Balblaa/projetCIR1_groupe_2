@@ -2,56 +2,86 @@
 #include <time.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <sys/sysinfo.h>
 
 int main() {
+
     bool stop = true;
     //création du temps de
-    double time_spent = 0.0;
     clock_t begin = clock();
-    //mettre le code à éxecuter
-    for (int i = 0; i < 100000; ++i) {
-        int e=e+i;
-    }
-    clock_t end = clock();
-    time_spent += (double)(end - begin);
-    time_spent=time_spent/10000;
-    // return time_spent;
 
     struct Filmotheque* ft = createFilmotheque("../../BD_medium.txt");
 
-    FILE *fichier;
+    clock_t end = clock();
+    double time_spent = (double)(end - begin);
+    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
+
+    printf("%f", time_spent);
     while(stop) {
+        FILE *fichier;
         fichier = fopen("../html/request.txt", "r");
-        int index;
+        //création des variables qui vont contenir les paramètres du fichier
         char nomFunction[30];
-        char nomParametre[MAXAUTHOR + MAXTITLE + MAXTYPE];
+        char realisateur[MAXAUTHOR];
+        char title[MAXTITLE];
+        char type[MAXTYPE];
+        char time[4];
+        //si le fichier n'est pas vide
         if (fichier != NULL) {
             char requestStr[MAXAUTHOR + MAXTITLE + MAXTYPE + 30];
+            //on récupère dans une chaine de caractère les éléments de la requête
             fgets(requestStr, MAXAUTHOR + MAXTYPE + MAXTITLE, fichier);
-            for (int i = 0; i < strlen(requestStr); i++) {
+            //on sépare en deux la chaine de caractère
+            int info = strlen(requestStr);
+            int indexParam = 0;
+            int counter = 0;
+            for (int i = 0; i < info; i++) {
                 if (requestStr[i] == ';') {
-                    index = i;
+                    counter++;
+                    indexParam = 0;
+                }
+                else {
+                    switch (counter) {
+                        case 0:
+                            if (requestStr[i] >= 'A' && requestStr[indexParam] <= 'Z') {
+                                nomFunction[indexParam] = requestStr[i] + 32;
+                            } else {
+                                nomFunction[indexParam] = requestStr[i];
+                            }
+                            indexParam++;
+                            i++;
+                            break;
+                        case 1:
+                            realisateur[indexParam] = requestStr[i];
+                            indexParam++;
+                            break;
+                        case 2:
+                            time[indexParam] = requestStr[i];
+                            indexParam++;
+                            break;
+                        case 3:
+                            type[indexParam] = requestStr[i];
+                            indexParam++;
+                            break;
+                    }
                 }
             }
-            for (int j = 0; j < index; j++) {
-                nomFunction[j] = requestStr[j];
-            }
-            for (int k = 1; k < strlen(requestStr); k++) {
-                nomParametre[k - 1] = requestStr[k + index];
-            }
+            //si le nom de fonction en paramètre correspond au nom de fonction
             if (strcmp(nomFunction, "searchByAuthor") == 0) {
-                searchByAuthor(ft, nomParametre);
+                searchByAuthor(ft, realisateur);
             }
             if (strcmp(nomFunction, "searchByTime") == 0) {
-                searchByTime(ft, atoi(nomParametre));
+                searchByTime(ft, atoi(time));
             }
-            if (strcmp(nomFunction, "stopProcess") == 0){
+            //si le nom de la fonction de la requête est stopProcess, on arrête la recherche
+            if (strcmp(nomFunction, "stopProcess") == 0) {
                 stop = false;
             }
-            fclose(fichier);
         }
-    }
 
+        fclose(fichier);
+    }
+    //on supprime la structure
     deleteFilmothque(&ft);
 
 }

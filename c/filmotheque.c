@@ -42,7 +42,8 @@ struct Film* getFilmByListChrono(struct Filmotheque* ft, int time){
 }
 
 // Permet de rajouter un Film
-void addNewFilm(struct Filmotheque* ft,struct Film* f){
+void addNewFilm(struct Filmotheque* ft,char title[MAXTITLE], char type[MAXTYPE],char author[MAXAUTHOR], char* time){
+    struct Film* f = createFilm(title, type, author, time);
     insertFilm(ft->r, f);
     ft->plusLongFilm = findlongestFilm(ft->r);
 }
@@ -120,7 +121,7 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
 void searchByTime(struct Filmotheque* ft, int time){
     FILE* fichier;
     FILE* ready;
-    fichier = fopen("../html/results.txt", "w");
+    fichier = fopen("../results.txt", "w");
 
     struct Film* f = ft->listFilmByChrono->list[time-1];
     char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
@@ -143,6 +144,6 @@ void searchByTime(struct Filmotheque* ft, int time){
     }
 
     fclose(fichier);
-    ready = fopen("../html/ready.txt", "w");
+    ready = fopen("../ready.txt", "w");
     fclose(ready);
 }

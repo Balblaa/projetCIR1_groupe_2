@@ -33,7 +33,7 @@ char* getRealisateurProductif(struct Filmotheque* ft);
 struct Film* getFilmByListChrono(struct Filmotheque* ft, int time);
 
 // Permet de rajouter un Film
-void addNewFilm(struct Filmotheque* ft,struct Film* f);
+void addNewFilm(struct Filmotheque* ft,char title[MAXTITLE], char type[MAXTYPE],char author[MAXAUTHOR], char* time);
 
 //affiche la structure
 void printFilmotheque(struct Filmotheque* ft);
