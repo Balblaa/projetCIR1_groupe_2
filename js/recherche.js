@@ -57,7 +57,7 @@ function validateForm() {
     let realisateurRegex = /^[a-zA-Z \-\']+$/;
     let dureeRegex =/^[0-9]+$/;
     let filmRegex = /^[a-zA-Z \-\']+$/;
-    let categorieRegex = /^[a-zA-Z ]+$/;
+    let categorieRegex = /^[a-zA-Z \-\']+$/;
 
     //Tester les valeurs des champs avec les expressions régulières
     let isRealisateurValid = realisateurRegex.test(realisateur);
@@ -180,7 +180,39 @@ function printMovies(){
     return moviesArray;
 }
 
-function stopProcess(){
-    window.location.reload(true);
-    writeFile("deleteFilmotheque", "aaa.txt");
+function deleteFiles() {
+    // Créer une instance de l'objet XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    // Ouvrir une requête DELETE vers l'URL du fichier à supprimer (ex: "/delete-file")
+    xhr.open("DELETE", "/delete-file?filename=results.txt", true);
+
+    // Envoyer la requête
+    xhr.send();
+
+    // Gérer la réponse de la requête
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log("Fichier results.txt supprimé avec succès");
+            } else {
+                console.log("Erreur lors de la suppression du fichier results.txt");
+            }
+        }
+    };
+
+    // Répéter les étapes ci-dessus pour supprimer le fichier ready.txt
+    // en changeant l'URL et le nom du fichier dans la requête
+    xhr.open("DELETE", "/delete-file?filename=ready.txt", true);
+    xhr.send();
+}
+
+function insererFilm(){
+    let realisateur = document.getElementById("realisateur").value;
+    let duree = document.getElementById("duree").value;
+    let film = document.getElementById("titre").value;
+    let categorie = document.getElementById("genre").value;
+    let filmString = realisateur + ";" + duree + ";" + film + ";" + categorie + "\n";
+    writeFile('filmString', "ready.txt");
+    return filmString;
 }
