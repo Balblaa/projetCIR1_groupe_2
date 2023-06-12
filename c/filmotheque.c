@@ -83,6 +83,14 @@ void deleteFilmothque(struct Filmotheque** ft){
 
 // Renvoie un fichier result.txt avec les Films cherché par auteur
 void searchByAuthor(struct Filmotheque* ft, char* realisateur){
+    FILE* suppr;
+    suppr = fopen("../html/ready.txt", "r");
+    if(suppr != NULL){
+        fclose(suppr);
+        remove("../html/ready.txt");
+        remove("../html/results.txt");
+    }
+
     FILE* fichier;
     FILE* ready;
     fichier = fopen("../html/results.txt", "w");
@@ -121,9 +129,17 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
 
 // Renvoie un fichier result.txt avec les Films cherché pas temps
 void searchByTime(struct Filmotheque* ft, int time){
+    FILE* suppr;
+    suppr = fopen("../html/ready.txt", "r");
+    if(suppr != NULL){
+        fclose(suppr);
+        remove("../html/ready.txt");
+        remove("../html/results.txt");
+    }
+
     FILE* fichier;
     FILE* ready;
-    fichier = fopen("../results.txt", "w");
+    fichier = fopen("../html/results.txt", "w");
 
     struct Film* f = ft->listFilmByChrono->list[time-1];
     char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
@@ -146,6 +162,7 @@ void searchByTime(struct Filmotheque* ft, int time){
     }
 
     fclose(fichier);
-    ready = fopen("../ready.txt", "w");
+    ready = fopen("../html/ready.txt", "w");
     fclose(ready);
+    remove("../html/request.txt");
 }

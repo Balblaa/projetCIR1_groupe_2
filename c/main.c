@@ -31,6 +31,7 @@ int main() {
             char requestStr[MAXAUTHOR + MAXTITLE + MAXTYPE + 30];
             //on récupère dans une chaine de caractère les éléments de la requête
             fgets(requestStr, MAXAUTHOR + MAXTYPE + MAXTITLE, fichier);
+            strcat(requestStr, ";");
             //on sépare en deux la chaine de caractère
             int info = strlen(requestStr);
             int indexParam = 0;
@@ -49,7 +50,17 @@ int main() {
                             indexParam = 0;
                             break;
                         case 2:
+                            title[indexParam] = '\0';
+                            counter++;
+                            indexParam = 0;
+                            break;
+                        case 3:
                             time[indexParam] = '\0';
+                            counter++;
+                            indexParam = 0;
+                            break;
+                        case 4:
+                            type[indexParam] = '\0';
                             counter++;
                             indexParam = 0;
                             break;
@@ -70,10 +81,14 @@ int main() {
                             indexParam++;
                             break;
                         case 2:
-                            time[indexParam] = requestStr[i];
+                            title[indexParam] = requestStr[i];
                             indexParam++;
                             break;
                         case 3:
+                            time[indexParam] = requestStr[i];
+                            indexParam++;
+                            break;
+                        case 4:
                             type[indexParam] = requestStr[i];
                             indexParam++;
                             break;
@@ -90,6 +105,13 @@ int main() {
             //si le nom de la fonction de la requête est stopProcess, on arrête la recherche
             if (strcmp(nomFunction, "stopprocess") == 0) {
                 stop = false;
+                FILE* suppr;
+                suppr = fopen("../html/ready.txt", "r");
+                if(suppr != NULL){
+                    fclose(suppr);
+                    remove("../html/ready.txt");
+                    remove("../html/results.txt");
+                }
             }
 
             fclose(fichier);
