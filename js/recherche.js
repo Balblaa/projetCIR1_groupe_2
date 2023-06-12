@@ -1,23 +1,23 @@
 function research(event){
     event.preventDefault();
     //on récupère les éléments du formulaire
-    let authorName=document.getElementById("realisateur").value;
-    let dureeMovie=document.getElementById("duree").value;
-    let nameMovie=document.getElementById("film").value;
-    let categorieMovie=document.getElementById("categorie").value;
+    let authorName=document.getElementById("real").value;
+    let dureeMovie=document.getElementById("temps").value;
+    let nameMovie=document.getElementById("nomFilm").value;
+    let categorieMovie=document.getElementById("genre").value;
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
-        writeFile(realisateur,'readFileByName');
+        writeFile('realisateur','readFileByName');
     }
     if(dureeMovie.length!==0){
-        writeFile(duree,'readFileByDuree');
+        writeFile('duree','readFileByDuree');
     }
     if(nameMovie.length!==0){
-        writeFile(film,'readFileByNameOfFilm');
+        writeFile('film','readFileByNameOfFilm');
     }
     if(categorieMovie.length!==0){
-        writeFile(categorie,'readFileByCategorie');
+        writeFile('categorie','readFileByCategorie');
     }
     if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
         printMovies();
@@ -25,6 +25,7 @@ function research(event){
 }
 // fonction qui permet d'écrire dans un fichier
 function writeFile(id_form,func) {
+    console.log("id_form");
 
     var element = document.createElement('a');
 
@@ -57,7 +58,7 @@ function validateForm() {
     let realisateurRegex = /^[a-zA-Z \-\']+$/;
     let dureeRegex =/^[0-9]+$/;
     let filmRegex = /^[a-zA-Z \-\']+$/;
-    let categorieRegex = /^[a-zA-Z \-\']+$/;
+    let categorieRegex = /^[a-zA-Z ]+$/;
 
     //Tester les valeurs des champs avec les expressions régulières
     let isRealisateurValid = realisateurRegex.test(realisateur);
@@ -95,7 +96,7 @@ function validateForm() {
     if (isCategorieValid || categorie === "") {
         categorieError.innerHTML = "";
     } else {
-        categorieError.innerHTML = "La catégorie doit contenir uniquement des lettres et pas d'accents";
+        categorieError.innerHTML = "Le genre doit contenir uniquement des lettres et pas d'accents";
     }
 
     if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "") && (isFilmValid|| film === "") && (isCategorieValid|| categorie === "")) {
