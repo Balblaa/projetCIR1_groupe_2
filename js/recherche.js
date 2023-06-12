@@ -175,6 +175,8 @@ function printMovies(){
     }
     return moviesArray;
 }
+printMovies();
+
 
 function reset(){
     let table = document.getElementById("moviesTable");

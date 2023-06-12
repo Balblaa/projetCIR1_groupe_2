@@ -79,3 +79,14 @@ void deleteFilmothque(struct Filmotheque** ft){
     free(*ft);
     *ft = NULL;
 }
+void searchByTime(struct Filmotheque* ft,int time){
+    FILE* fichier;
+    fichier= fopen("../../html/result.txt","w");
+    while(ft->listFilmByChrono->list[time-1]->next!=NULL){
+        struct Film* f=getFilmByListChrono(ft,time);
+        char* texte=[MAXAUTHOR + MAXTITLE + MAXTYPE] = "%s%s%d",f->author f->title f->time;
+        fputs(texte,fichier);
+        f->next;
+    }
+    fclose(fichier);
+}
