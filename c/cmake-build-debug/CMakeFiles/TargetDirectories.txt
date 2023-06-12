@@ -1,3 +1,0 @@
-/mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/vdron/Documents/Travail/algo/pratique/Perso/cmake-build-debug/CMakeFiles/Perso.dir

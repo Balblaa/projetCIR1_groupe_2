@@ -13,10 +13,10 @@ int main() {
     clock_t end = clock();
     time_spent += (double)(end - begin);
     time_spent=time_spent/10000;
-    return time_spent;
+
     struct Filmotheque* ft = createFilmotheque("../../BD_medium.txt");
 
-    searchByAuthor(ft, "leandron");
+    searchByTime(ft, 120);
 
     deleteFilmothque(&ft);
 }

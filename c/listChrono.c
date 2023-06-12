@@ -29,7 +29,7 @@ void buildListFromtxt(struct ListChrono* listFilm, char* nomfichier){
     while(!feof(fichier)) {
         char c = fgetc(fichier);
         if (c == '\n') {
-            type[index-1] = '\0';
+            type[index] = '\0';
             struct Film* f = createFilm(title, type, realisateur, time);
             addFilmToList(listFilm, f);
             counter = 0;

@@ -84,7 +84,7 @@ void deleteFilmothque(struct Filmotheque** ft){
 void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     FILE* fichier;
     FILE* ready;
-    fichier = fopen("../html/result.txt", "w");
+    fichier = fopen("../html/results.txt", "w");
 
     struct Realisateur* r = findRealisateur(ft->r, realisateur);
     char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
@@ -117,4 +117,32 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
 }
 
 // Renvoie un fichier result.txt avec les Films cherché pas temps
-void searchByTime(struct Filmotheque* ft, int time);
+void searchByTime(struct Filmotheque* ft, int time){
+    FILE* fichier;
+    FILE* ready;
+    fichier = fopen("../html/results.txt", "w");
+
+    struct Film* f = ft->listFilmByChrono->list[time-1];
+    char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
+    int nb_film = f->size;
+
+    for(int i=0; i<nb_film; i++){
+        strcat(texte, getAuthor(f));
+        strcat(texte, ";");
+        strcat(texte, getTitle(f));
+        strcat(texte, ";");
+        strcat(texte, getTime(f));
+        strcat(texte, ";");
+        strcat(texte, getType(f));
+        strcat(texte, "\n");
+        fputs(texte, fichier);
+        f = f->next;
+        for(int lettre=0; lettre<MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++){
+            texte[lettre] = '\0';
+        }
+    }
+
+    fclose(fichier);
+    ready = fopen("../html/ready.txt", "w");
+    fclose(ready);
+}
