@@ -1,13 +1,16 @@
 function research(){
     let authorName=document.getElementById("realisateur");
     let dureeMovie=document.getElementById("duree");
-    if(authorName.length!==0){
+    if(authorName.length===""){
+        console.log("authorName");
         writeFile('research','readFileByName');
     }
-    if(dureeMovie.length!==0){
+    if(dureeMovie.length===""){
+        console.log("dureeMovie");
         writeFile('formRequest','readFileByName');
     }
-    if(authorName==="" && dureeMovie===""){
+    if(authorName!=="" && dureeMovie!==""){
+        console.log("Aucun champ n'est rempli");
         printMovies();
     }
 }
@@ -144,5 +147,11 @@ function printMovies(){
     }
     return moviesArray;
 }
-printMovies();
 
+function supprimerFilmotheque(){
+    let table = document.getElementById("moviesTable");
+    let rowCount = table.rows.length;
+    for(let i = rowCount - 1; i > 0; i--){
+        table.deleteRow(i);
+    }
+}
