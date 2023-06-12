@@ -18,7 +18,8 @@ function research(){
     if(categorieMovie.length!==0){
         writeFile(categorieMovie,'readFileByCategorie');
     }
-    if(authorName==="" && dureeMovie===""){
+    if(authorName==="" && dureeMovie==="" && nameMovie==="" && categorieMovie===""){
+        console.log("Aucun champ n'est rempli");
         printMovies();
     }
 }
@@ -48,14 +49,20 @@ function validateForm() {
     //Récupérer les valeurs des champs
     let realisateur = document.getElementById("realisateur").value;
     let duree = document.getElementById("duree").value;
+    let film = document.getElementById("film").value;
+    let categorie = document.getElementById("categorie").value;
 
     //Définir les expressions régulières
-    let realisateurRegex = /^[a-zA-Z \-]+$/;
+    let realisateurRegex = /^[a-zA-Z \-\']+$/;
     let dureeRegex =/^[0-9]+$/;
+    let filmRegex = /^[a-zA-Z \-\']+$/;
+    let categorieRegex = /^[a-zA-Z \-\']+$/;
 
     //Tester les valeurs des champs avec les expressions régulières
     let isRealisateurValid = realisateurRegex.test(realisateur);
     let isDureeValid = dureeRegex.test(duree);
+    let isFilmValid = filmRegex.test(film);
+    let isCategorieValid = categorieRegex.test(categorie);
     //console.log(isRealisateurValid, isDureeValid, isMessageValid);
     //console.log(realisateur, duree, message);
 
@@ -63,6 +70,8 @@ function validateForm() {
     let submitBtn = document.getElementById("submitBtn");
     let realisateurError = document.getElementById("realisateurError");
     let dureeError = document.getElementById("dureeError");
+    let filmError = document.getElementById("filmError");
+    let categorieError = document.getElementById("categorieError");
 
 
     //Afficher les messages d'erreur 
@@ -77,8 +86,18 @@ function validateForm() {
     } else {
         dureeError.innerHTML = "La duree doit être en minutes et uniquement composé de chiffres";
     }
+    if (isFilmValid || film === "") {
+        filmError.innerHTML = "";
+    } else {
+        filmError.innerHTML = "Le film doit contenir uniquement des lettres et pas d'accents";
+    }
+    if (isCategorieValid || categorie === "") {
+        categorieError.innerHTML = "";
+    } else {
+        categorieError.innerHTML = "La catégorie doit contenir uniquement des lettres et pas d'accents";
+    }
 
-    if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "")) {
+    if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "") && (isFilmValid|| film === "") && (isCategorieValid|| categorie === "")) {
         submitBtn.disabled = false;
         submitBtn.classList.remove("btn-notvalid");
     } else {
@@ -91,6 +110,8 @@ function validateForm() {
 // appeler la fonction validateForm à chaque fois qu'un champ est modifié
 document.getElementById("realisateur").addEventListener("input", validateForm);
 document.getElementById("duree").addEventListener("input", validateForm);
+document.getElementById("film").addEventListener("input", validateForm);
+document.getElementById("categorie").addEventListener("input", validateForm);
 
 //Appeler la fonction validateForm au chargement de la page
 validateForm();
@@ -156,3 +177,11 @@ function printMovies(){
 }
 printMovies();
 
+
+function reset(){
+    let table = document.getElementById("moviesTable");
+    let rowCount = table.rows.length;
+    for(let i = rowCount - 1; i > 0; i--){
+        table.deleteRow(i);
+    }
+}
