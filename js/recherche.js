@@ -7,24 +7,19 @@ function research(event){
     let categorieMovie=document.getElementById("categorie").value;
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
-        console.log(authorName.length);
         //on exécute la fonction de recherche avec le paramètre entrée.
-        writeFile(authorName,'readFileByName');
+        writeFile(realisateur,'readFileByName');
     }
     if(dureeMovie.length!==0){
-        console.log("dureeMovie");
-        writeFile(dureeMovie,'readFileByDuree');
+        writeFile(duree,'readFileByDuree');
     }
     if(nameMovie.length!==0){
-        console.log("nameMovie");
-        writeFile(nameMovie,'readFileByNameOfFilm');
+        writeFile(film,'readFileByNameOfFilm');
     }
     if(categorieMovie.length!==0){
-        console.log("categorieMovie");
-        writeFile(categorieMovie,'readFileByCategorie');
+        writeFile(categorie,'readFileByCategorie');
     }
     if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
-        console.log("Aucun champ n'est rempli");
         printMovies();
     }
 }
@@ -179,18 +174,13 @@ function printMovies(){
         cell3.innerHTML = movie[2];
         cell4.innerHTML = movie[3];     
     }
+    //effacer le contenu du fichier results.txt et ready.txt
+    writeFile("deleteFilmotheque", "results.txt");
+    writeFile("deleteFilmotheque", "ready.txt");
     return moviesArray;
 }
-function deleteRow(){
-    let table = document.getElementById("moviesTable");
-    let rowCount = table.rows.length;
-    table.deleteRow(rowCount - 1);
-}
 
-function reset(){
-    let table = document.getElementById("moviesTable");
-    let rowCount = table.rows.length;
-    for(let i = rowCount - 1; i > 0; i--){
-        table.deleteRow(i);
-    }
+function stopProcess(){
+    window.location.reload(true);
+    writeFile("deleteFilmotheque", "aaa.txt");
 }
