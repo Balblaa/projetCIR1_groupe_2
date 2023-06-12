@@ -158,7 +158,9 @@ function printMovies(){
     let movies = readFile();
     // Division des données des films en un tableau en utilisant le saut de ligne comme séparateur
     let moviesArray = movies.split("\n");
-    
+    //ajout d'un compteur
+    let compteur = document.getElementById("compteur");
+    let count = 0;
     // Récupération de la référence à l'élément de tableau HTML avec l'ID "moviesTable"
     let table = document.getElementById("moviesTable");
     // Parcours de chaque film dans le tableau moviesArray
@@ -179,39 +181,15 @@ function printMovies(){
         cell1.innerHTML = movie[0];
         cell2.innerHTML = movie[1];
         cell3.innerHTML = movie[2];
-        cell4.innerHTML = movie[3];     
+        cell4.innerHTML = movie[3];
+        count++;    
     }
     //effacer le contenu du fichier results.txt et ready.txt
     writeFile("deleteFilmotheque", "results.txt");
     writeFile("deleteFilmotheque", "ready.txt");
+    compteur.innerHTML = "Il y a " + count + " films affichés";
+
     return moviesArray;
-}
-
-function deleteFiles() {
-    // Créer une instance de l'objet XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    // Ouvrir une requête DELETE vers l'URL du fichier à supprimer (ex: "/delete-file")
-    xhr.open("DELETE", "/delete-file?filename=results.txt", true);
-
-    // Envoyer la requête
-    xhr.send();
-
-    // Gérer la réponse de la requête
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                console.log("Fichier results.txt supprimé avec succès");
-            } else {
-                console.log("Erreur lors de la suppression du fichier results.txt");
-            }
-        }
-    };
-
-    // Répéter les étapes ci-dessus pour supprimer le fichier ready.txt
-    // en changeant l'URL et le nom du fichier dans la requête
-    xhr.open("DELETE", "/delete-file?filename=ready.txt", true);
-    xhr.send();
 }
 
 function insererFilm(){
