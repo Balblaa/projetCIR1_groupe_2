@@ -115,6 +115,7 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     fclose(fichier);
     ready = fopen("../html/ready.txt", "w");
     fclose(ready);
+    remove("../html/request.txt");
 }
 
 // Renvoie un fichier result.txt avec les Films cherché pas temps

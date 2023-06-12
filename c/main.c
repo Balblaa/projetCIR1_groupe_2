@@ -37,8 +37,23 @@ int main() {
             int counter = 0;
             for (int i = 0; i < info; i++) {
                 if (requestStr[i] == ';') {
-                    counter++;
-                    indexParam = 0;
+                    switch (counter) {
+                        case 0:
+                            nomFunction[indexParam] = '\0';
+                            counter++;
+                            indexParam = 0;
+                            break;
+                        case 1:
+                            realisateur[indexParam] = '\0';
+                            counter++;
+                            indexParam = 0;
+                            break;
+                        case 2:
+                            time[indexParam] = '\0';
+                            counter++;
+                            indexParam = 0;
+                            break;
+                    }
                 }
                 else {
                     switch (counter) {
@@ -49,7 +64,6 @@ int main() {
                                 nomFunction[indexParam] = requestStr[i];
                             }
                             indexParam++;
-                            i++;
                             break;
                         case 1:
                             realisateur[indexParam] = requestStr[i];
@@ -67,19 +81,19 @@ int main() {
                 }
             }
             //si le nom de fonction en paramètre correspond au nom de fonction
-            if (strcmp(nomFunction, "searchByAuthor") == 0) {
+            if (strcmp(nomFunction, "searchbyauthor") == 0) {
                 searchByAuthor(ft, realisateur);
             }
-            if (strcmp(nomFunction, "searchByTime") == 0) {
+            if (strcmp(nomFunction, "searchbytime") == 0) {
                 searchByTime(ft, atoi(time));
             }
             //si le nom de la fonction de la requête est stopProcess, on arrête la recherche
-            if (strcmp(nomFunction, "stopProcess") == 0) {
+            if (strcmp(nomFunction, "stopprocess") == 0) {
                 stop = false;
             }
-        }
 
-        fclose(fichier);
+            fclose(fichier);
+        }
     }
     //on supprime la structure
     deleteFilmothque(&ft);
