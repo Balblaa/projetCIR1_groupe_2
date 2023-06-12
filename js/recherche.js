@@ -1,11 +1,22 @@
 function research(){
+    //on récupère les éléments du formulaire
     let authorName=document.getElementById("realisateur");
     let dureeMovie=document.getElementById("duree");
+    let nameMovie=document.getElementById("film");
+    let categorieMovie=document.getElementById("categorie");
+    //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
-        writeFile('research','readFileByName');
+        //on exécute la fonction de recherche avec le paramètre entrée.
+        writeFile(authorName,'readFileByName');
     }
     if(dureeMovie.length!==0){
-        writeFile('formRequest','readFileByName');
+        writeFile(dureeMovie,'readFileByDuree');
+    }
+    if(nameMovie.length!==0){
+        writeFile(nameMovie,'readFileByNameOfFilm');
+    }
+    if(categorieMovie.length!==0){
+        writeFile(categorieMovie,'readFileByCategorie');
     }
     if(authorName==="" && dureeMovie===""){
         printMovies();
@@ -54,7 +65,7 @@ function validateForm() {
     let dureeError = document.getElementById("dureeError");
 
 
-    //Afficher les messages d'erreur
+    //Afficher les messages d'erreur 
     if (isRealisateurValid || realisateur === "") {
         realisateurError.innerHTML = "";
     } else {
@@ -101,12 +112,12 @@ function readFileByName(fileName){
     // assumes status 200
     return xhr.responseText;
 }
-
+//fonction pour insérer une nouvelle place pour une catégorie film
 function insertCell(row, cellNumber, text){
     let cell = row.insertCell(cellNumber);
     cell.innerHTML = text;
 }
-
+//fonction pour insérer une nouvelle place pour un film
 function insertRow(table, rowNumber){
     let row = table.insertRow(rowNumber);
     return row;
@@ -116,7 +127,6 @@ function insertRow(table, rowNumber){
 function printMovies(){
     // Lecture des films à partir d'une source externe en utilisant la fonction readFile()
     let movies = readFile();
-    console.log(movies);
     // Division des données des films en un tableau en utilisant le saut de ligne comme séparateur
     let moviesArray = movies.split("\n");
     
@@ -126,7 +136,7 @@ function printMovies(){
     for(let i = 0; i < moviesArray.length; i++){
         // Séparation des données du film en utilisant le point-virgule comme séparateur
         let movie = moviesArray[i].split(";");
-        
+
         // Insertion d'une nouvelle ligne dans le tableau HTML
         let row = table.insertRow(i+1);
         
