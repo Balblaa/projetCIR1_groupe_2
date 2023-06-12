@@ -8,20 +8,16 @@ function research(event){
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
-        writeFile('research','readFileByName');
-        printMovies();
+        writeFile('research','searchByAuthor');
     }
     if(dureeMovie.length!==0){
-        writeFile('research','readFileByDuree');
-        printMovies();
+        writeFile('research','searchByTime');
     }
     if(nameMovie.length!==0){
-        writeFile('research','readFileByNameOfFilm');
-        printMovies();
+        writeFile('research','searchByTitle');
     }
     if(categorieMovie.length!==0){
-        writeFile('research','readFileByCategorie');
-        printMovies();
+        writeFile('research','searchByType');
     }
     if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
         printMovies();
