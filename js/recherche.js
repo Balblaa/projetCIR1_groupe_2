@@ -1,24 +1,29 @@
-function research(){
+function research(event){
+    event.preventDefault();
     //on récupère les éléments du formulaire
-    let authorName=document.getElementById("realisateur");
-    let dureeMovie=document.getElementById("duree");
-    let nameMovie=document.getElementById("film");
-    let categorieMovie=document.getElementById("categorie");
+    let authorName=document.getElementById("realisateur").value;
+    let dureeMovie=document.getElementById("duree").value;
+    let nameMovie=document.getElementById("film").value;
+    let categorieMovie=document.getElementById("categorie").value;
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
+        console.log(authorName.length);
         //on exécute la fonction de recherche avec le paramètre entrée.
         writeFile(authorName,'readFileByName');
     }
     if(dureeMovie.length!==0){
+        console.log("dureeMovie");
         writeFile(dureeMovie,'readFileByDuree');
     }
     if(nameMovie.length!==0){
+        console.log("nameMovie");
         writeFile(nameMovie,'readFileByNameOfFilm');
     }
     if(categorieMovie.length!==0){
+        console.log("categorieMovie");
         writeFile(categorieMovie,'readFileByCategorie');
     }
-    if(authorName==="" && dureeMovie==="" && nameMovie==="" && categorieMovie===""){
+    if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
         console.log("Aucun champ n'est rempli");
         printMovies();
     }
@@ -45,6 +50,7 @@ function writeFile(id_form,func) {
 
     text1.submit();
 }
+
 function validateForm() {
     //Récupérer les valeurs des champs
     let realisateur = document.getElementById("realisateur").value;
@@ -154,7 +160,7 @@ function printMovies(){
     // Récupération de la référence à l'élément de tableau HTML avec l'ID "moviesTable"
     let table = document.getElementById("moviesTable");
     // Parcours de chaque film dans le tableau moviesArray
-    for(let i = 0; i < moviesArray.length; i++){
+    for(let i = 0; i < moviesArray.length - 1; i++){
         // Séparation des données du film en utilisant le point-virgule comme séparateur
         let movie = moviesArray[i].split(";");
 
@@ -175,8 +181,11 @@ function printMovies(){
     }
     return moviesArray;
 }
-printMovies();
-
+function deleteRow(){
+    let table = document.getElementById("moviesTable");
+    let rowCount = table.rows.length;
+    table.deleteRow(rowCount - 1);
+}
 
 function reset(){
     let table = document.getElementById("moviesTable");
