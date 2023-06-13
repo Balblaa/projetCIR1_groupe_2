@@ -207,21 +207,27 @@ void searchBestAuthor(struct Filmotheque* ft){
 
     clock_t begin = clock();
 
-    char texte[MAXAUTHOR+5] = {};
+    char* best = ft->realisateurProductif;
     int nb_film = ft->maxFilm;
-    char nombre[5];
-    sprintf(nombre, "%d", nb_film);
 
     clock_t end = clock();
     double time_spent = (double)(end - begin);
     time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
     char temps[10];
 
+    char texte[MAXAUTHOR+5] = {};
+    char nombre[5];
+    sprintf(nombre, "%d", nb_film);
+
+    char js_print[12] = "bestAuthor";
+    strcat(js_print, "\n");
+    fputs(js_print, fichier);
+
     sprintf(temps, "%f", time_spent);
     strcat(temps, "\n");
     fputs(temps, fichier);
 
-    strcat(texte, ft->realisateurProductif);
+    strcat(texte, best);
     strcat(texte, ";");
     strcat(texte, nombre);
 
