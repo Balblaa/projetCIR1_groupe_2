@@ -25,7 +25,7 @@
          <div id="column">
             <h1>Faites votre recherche</h1>
             <div id="search">
-                <form id="research" onsubmit="research(event)">
+                <form id="research">
                     <div id="searchbar">
                         <div class="form">
                             <div>
@@ -46,9 +46,11 @@
                 </form>
                 <form id="buttonsForm">
                     <input type="submit" onclick="deleteFiles()" value="supprimer" class="button" id="delete">
-                    <input type="submit" onclick="printBestAuthor()" value="BestAuthor" class="button" id="bestAuthor">
+                    <input type="submit" onclick="requestBestAuthor()" value="BestAuthor" class="button" id="bestAuthor">
                 </form>
             </div>
+            <label id="best_rea"></label>
+            <label id="temps_exec"></label>
             <div>
                 <table id="moviesTable">
                     <tr>
@@ -59,8 +61,6 @@
                     </tr>
                 </table>
             </div>
-            <label id="ouai"></label>
-            <label id="temps_exec"></label>
          </div>
         </div>
     </body>
