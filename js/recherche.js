@@ -1,14 +1,16 @@
 function research(){
-    //on récupère les éléments du formulaire
-    let authorName=document.getElementById("realisateur").value;
-    let dureeMovie=document.getElementById("duree").value;
-    //si quelque chose est rempli dans le formulaire
-    if(authorName.length!==0){
-        //on exécute la fonction de recherche avec le paramètre entrée.
-        writeFile('research','searchbyauthor');
-    }
-    if(dureeMovie.length!==0){
-        writeFile('research','searchbytime');
+    if(canUseServer()){
+        //on récupère les éléments du formulaire
+        let authorName=document.getElementById("realisateur").value;
+        let dureeMovie=document.getElementById("duree").value;
+        //si quelque chose est rempli dans le formulaire
+        if(authorName.length!==0){
+            //on exécute la fonction de recherche avec le paramètre entrée.
+            writeFile('research','searchbyauthor');
+        }
+        if(dureeMovie.length!==0){
+            writeFile('research','searchbytime');
+        }
     }
 }
 // fonction qui permet d'écrire dans un fichier
@@ -156,7 +158,9 @@ function deleteFiles(){
 }
 
 function requestBestAuthor(){
-    writeFile("research", "searchbestauthor");
+    if(canUseServer()){
+        writeFile("research", "searchbestauthor");
+    }
 }
 
 function printBestAuthor(){
@@ -198,25 +202,34 @@ function canUseServer(){
     return false;
 }
 
-if(canUseServer()){
-    // le serveur est actif
+function miseAJour(){
+    if(canUseServer()){
+        // le serveur est actif
 
-    //code qui affiche result.txt
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "ready.txt", false);
-    xhr.send(null);
-    if(xhr.status !== 404){
-        if(!printError()){
-            printBestAuthor();
-            printMovies();
+        //code qui affiche result.txt
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "ready.txt", false);
+        xhr.send(null);
+        if(xhr.status !== 404){
+            if(!printError()){
+                printBestAuthor();
+                printMovies();
+            }
         }
+
+        let etat_serveur = document.getElementById("etat_serveur");
+        etat_serveur.style.color="green";
+        etat_serveur.innerHTML= "Allumé";
+
     }
+    else{
+        // le serveur n'est pas actif
 
-    let etat_serveur = document.getElementById("etat_serveur");
-    
-
+        let etat_serveur = document.getElementById("etat_serveur");
+        etat_serveur.style.color="red";
+        etat_serveur.innerHTML= "Eteint";
+    }
+    setTimeout(miseAJour, 1000);
 }
-else{
-    // le serveur n'est pas actif
 
-}
+miseAJour();
