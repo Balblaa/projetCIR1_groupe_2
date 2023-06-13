@@ -193,8 +193,7 @@ function printMovies(){
 }
 
 function deleteFiles(){
-    writeFile("delete", "stopprocess");
-    return readFileByName("ready.txt");
+    writeFile("research", "stopprocess");
 }
 
 function insererFilm(){
