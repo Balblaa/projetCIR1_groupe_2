@@ -120,7 +120,6 @@ function insertRow(table, rowNumber){
 
 //fonction qui affiche les films dans un tableau
 function printMovies(){
-    document.location.reload(true);
     // Lecture des films à partir d'une source externe en utilisant la fonction readFile()
     let movies = readFile();
     // Division des données des films en un tableau en utilisant le saut de ligne comme séparateur
