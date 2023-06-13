@@ -11,7 +11,6 @@ int main() {
     struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
     remove("../html/request.txt");
 
-    printf("%f", time_spent);
     while(stop) {
         FILE *fichier;
         fichier = fopen("../html/request.txt", "r");
