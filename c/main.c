@@ -105,6 +105,7 @@ int main() {
             //si le nom de la fonction de la requête est stopProcess, on arrête la recherche
             if (strcmp(nomFunction, "stopprocess") == 0) {
                 stop = false;
+                remove("../html/request.txt");
                 FILE* suppr;
                 suppr = fopen("../html/ready.txt", "r");
                 if(suppr != NULL){
