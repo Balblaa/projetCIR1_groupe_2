@@ -7,15 +7,9 @@
 int main() {
 
     bool stop = true;
-    //création du temps de
-    clock_t begin = clock();
 
     struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
     remove("../html/request.txt");
-
-    clock_t end = clock();
-    double time_spent = (double)(end - begin);
-    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
 
     printf("%f", time_spent);
     while(stop) {

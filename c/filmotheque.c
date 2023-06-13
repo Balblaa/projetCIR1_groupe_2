@@ -1,3 +1,4 @@
+#include <time.h>
 #include "realisateur.h"
 #include "filmotheque.h"
 #include "listChrono.h"
@@ -83,6 +84,7 @@ void deleteFilmothque(struct Filmotheque** ft){
 
 // Renvoie un fichier result.txt avec les Films cherché par auteur
 void searchByAuthor(struct Filmotheque* ft, char* realisateur){
+
     FILE* suppr;
     suppr = fopen("../html/ready.txt", "r");
     if(suppr != NULL){
@@ -95,7 +97,18 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     FILE* ready;
     fichier = fopen("../html/results.txt", "w");
 
+    clock_t begin = clock();
+
     struct Realisateur* r = findRealisateur(ft->r, realisateur);
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin);
+    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
+    char temps[10];
+    sprintf(temps, "%f", time_spent);
+    strcat(temps, "\n");
+    fputs(temps, fichier);
+
     char texte[
         MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
     struct Film* iter;
@@ -141,7 +154,18 @@ void searchByTime(struct Filmotheque* ft, int time){
     FILE* ready;
     fichier = fopen("../html/results.txt", "w");
 
+    clock_t  begin = clock();
+
     struct Film* f = ft->listFilmByChrono->list[time-1];
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin);
+    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
+    char temps[10];
+    sprintf(temps, "%f", time_spent);
+    strcat(temps, "\n");
+    fputs(temps, fichier);
+
     char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
     int nb_film = f->size;
 
@@ -181,10 +205,21 @@ void searchBestAuthor(struct Filmotheque* ft){
     FILE* ready;
     fichier = fopen("../html/results.txt", "w");
 
+    clock_t begin = clock();
+
     char texte[MAXAUTHOR+5] = {};
     int nb_film = ft->maxFilm;
     char nombre[5];
     sprintf(nombre, "%d", nb_film);
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin);
+    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
+    char temps[10];
+
+    sprintf(temps, "%f", time_spent);
+    strcat(temps, "\n");
+    fputs(temps, fichier);
 
     strcat(texte, ft->realisateurProductif);
     strcat(texte, ";");
