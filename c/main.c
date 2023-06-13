@@ -11,6 +11,7 @@ int main() {
     clock_t begin = clock();
 
     struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
+    remove("../html/request.txt");
 
     clock_t end = clock();
     double time_spent = (double)(end - begin);
@@ -23,14 +24,12 @@ int main() {
         //création des variables qui vont contenir les paramètres du fichier
         char nomFunction[30];
         char realisateur[MAXAUTHOR];
-        char title[MAXTITLE];
-        char type[MAXTYPE];
         char time[4];
         //si le fichier n'est pas vide
         if (fichier != NULL) {
-            char requestStr[MAXAUTHOR + MAXTITLE + MAXTYPE + 30];
+            char requestStr[MAXAUTHOR + 30];
             //on récupère dans une chaine de caractère les éléments de la requête
-            fgets(requestStr, MAXAUTHOR + MAXTYPE + MAXTITLE, fichier);
+            fgets(requestStr, MAXAUTHOR + 30, fichier);
             strcat(requestStr, ";");
             //on sépare en deux la chaine de caractère
             int info = strlen(requestStr);
@@ -50,17 +49,7 @@ int main() {
                             indexParam = 0;
                             break;
                         case 2:
-                            title[indexParam] = '\0';
-                            counter++;
-                            indexParam = 0;
-                            break;
-                        case 3:
                             time[indexParam] = '\0';
-                            counter++;
-                            indexParam = 0;
-                            break;
-                        case 4:
-                            type[indexParam] = '\0';
                             counter++;
                             indexParam = 0;
                             break;
@@ -81,15 +70,7 @@ int main() {
                             indexParam++;
                             break;
                         case 2:
-                            title[indexParam] = requestStr[i];
-                            indexParam++;
-                            break;
-                        case 3:
                             time[indexParam] = requestStr[i];
-                            indexParam++;
-                            break;
-                        case 4:
-                            type[indexParam] = requestStr[i];
                             indexParam++;
                             break;
                     }
@@ -101,6 +82,9 @@ int main() {
             }
             if (strcmp(nomFunction, "searchbytime") == 0) {
                 searchByTime(ft, atoi(time));
+            }
+            if (strcmp(nomFunction, "searchbestauthor") == 0) {
+                searchBestAuthor(ft);
             }
             //si le nom de la fonction de la requête est stopProcess, on arrête la recherche
             if (strcmp(nomFunction, "stopprocess") == 0) {
