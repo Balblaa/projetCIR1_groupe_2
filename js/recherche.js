@@ -192,7 +192,7 @@ function deleteFiles(){
 }
 
 function printBestAuthor(){
-    writeFile("research", "searchBestAuthor");
+    writeFile("research", "searchbestauthor");
     let bestAuthor = readFile();
     return bestAuthor;
 }

@@ -179,9 +179,9 @@ void searchBestAuthor(struct Filmotheque* ft){
 
     FILE* fichier;
     FILE* ready;
-    fichier = fopen("../results.txt", "w");
+    fichier = fopen("../html/results.txt", "w");
 
-    char texte[MAXAUTHOR+5];
+    char texte[MAXAUTHOR+5] = {};
     int nb_film = ft->maxFilm;
     char nombre[5];
     sprintf(nombre, "%d", nb_film);
@@ -193,6 +193,8 @@ void searchBestAuthor(struct Filmotheque* ft){
     fputs(texte, fichier);
 
     fclose(fichier);
+
     ready = fopen("../html/ready.txt", "w");
     fclose(ready);
+    remove("../html/request.txt");
 }
