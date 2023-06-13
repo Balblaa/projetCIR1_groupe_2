@@ -97,43 +97,50 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     FILE* ready;
     fichier = fopen("../html/results.txt", "w");
 
-    clock_t begin = clock();
+    if(isRealisateurExist(ft->r, realisateur)) {
+        clock_t begin = clock();
 
-    struct Realisateur* r = findRealisateur(ft->r, realisateur);
+        struct Realisateur *r = findRealisateur(ft->r, realisateur);
 
-    clock_t end = clock();
-    double time_spent = (double)(end - begin);
-    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
-    char temps[10];
-    sprintf(temps, "%f", time_spent);
-    strcat(temps, "\n");
-    fputs(temps, fichier);
+        clock_t end = clock();
+        double time_spent = (double) (end - begin);
+        time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
+        char temps[10];
+        sprintf(temps, "%f", time_spent);
+        strcat(temps, "\n");
+        fputs(temps, fichier);
 
-    char texte[
-        MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
-    struct Film* iter;
-    int nb_film;
+        char texte[
+                MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
+        struct Film *iter;
+        int nb_film;
 
-    if(r != NULL) {
-        if (isRealisateur(r) && r->film != NULL) {
-            iter = r->film;
-            nb_film = iter->size;
-            for (int i = 0; i < nb_film; i++) {
-                strcat(texte, getAuthor(iter));
-                strcat(texte, ";");
-                strcat(texte, getTitle(iter));
-                strcat(texte, ";");
-                strcat(texte, getTime(iter));
-                strcat(texte, ";");
-                strcat(texte, getType(iter));
-                strcat(texte, "\n");
-                fputs(texte, fichier);
-                iter = iter->next;
-                for (int lettre = 0; lettre < MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++) {
-                    texte[lettre] = '\0';
+        if (r != NULL) {
+            if (isRealisateur(r) && r->film != NULL) {
+                iter = r->film;
+                nb_film = iter->size;
+                for (int i = 0; i < nb_film; i++) {
+                    strcat(texte, getAuthor(iter));
+                    strcat(texte, ";");
+                    strcat(texte, getTitle(iter));
+                    strcat(texte, ";");
+                    strcat(texte, getTime(iter));
+                    strcat(texte, ";");
+                    strcat(texte, getType(iter));
+                    strcat(texte, "\n");
+                    fputs(texte, fichier);
+                    iter = iter->next;
+                    for (int lettre = 0; lettre < MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++) {
+                        texte[lettre] = '\0';
+                    }
                 }
             }
         }
+    }
+    else {
+        char texte[50] = "errorAuthor;";
+        strcat(texte, realisateur);
+        fputs(texte, fichier);
     }
 
     fclose(fichier);

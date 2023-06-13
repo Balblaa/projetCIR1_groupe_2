@@ -178,6 +178,10 @@ function printError(){
         document.getElementById("temps_exec").innerHTML = "Un film avec une durée de " + info[1] + " minutes n'existe pas dans la base";
         return true;
     }
+    if(info[0] == "errorAuthor"){
+        document.getElementById("temps_exec").innerHTML = "Il n'existe aucun réalisateur qui s'appel " + info[1];
+        return true;
+    }
     return false;
 }
 

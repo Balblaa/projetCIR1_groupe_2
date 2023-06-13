@@ -8,8 +8,13 @@ int main() {
 
     bool stop = true;
 
-    struct Filmotheque* ft = createFilmotheque("../BD_big.txt");
+    struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
+
+    // Un fichier pour voir si le serveur est en mode lecture
     remove("../html/request.txt");
+    FILE* ready;
+    ready = fopen("../html/lecture.txt", "w");
+    fclose(ready);
 
     while(stop) {
         FILE *fichier;
@@ -83,6 +88,7 @@ int main() {
             if (strcmp(nomFunction, "stopprocess") == 0) {
                 stop = false;
                 remove("../html/request.txt");
+                remove("../html/lecture.txt");
                 FILE* suppr;
                 suppr = fopen("../html/ready.txt", "r");
                 if(suppr != NULL){
