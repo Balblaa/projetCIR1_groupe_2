@@ -56,8 +56,9 @@
                         <input type="submit" onclick="research()" id="submitBtn" value="Rechercher" class="button">
                     </div>
                 </form>
-                <form>
+                <form id="buttonsForm">
                     <input type="submit" onclick="deleteFiles()" value="supprimer" class="button" id="delete">
+                    <input type="submit" onclick="printBestAuthor()" value="BestAuthor" class="button" id="bestAuthor">
                 </form>
             </div>
             <div>
@@ -70,7 +71,7 @@
                     </tr>
                 </table>
             </div>
-            <a id="compteur"></a>
+            <a id="bestAuthor"></a>
          </div>
         </div>
     </body>
