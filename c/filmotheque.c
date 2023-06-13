@@ -114,22 +114,24 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     struct Film* iter;
     int nb_film;
 
-    if(isRealisateur(r) && r->film != NULL){
-        iter = r->film;
-        nb_film = iter->size;
-        for(int i=0; i<nb_film; i++){
-            strcat(texte, getAuthor(iter));
-            strcat(texte, ";");
-            strcat(texte, getTitle(iter));
-            strcat(texte, ";");
-            strcat(texte, getTime(iter));
-            strcat(texte, ";");
-            strcat(texte, getType(iter));
-            strcat(texte, "\n");
-            fputs(texte, fichier);
-            iter = iter->next;
-            for(int lettre=0; lettre<MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++){
-                texte[lettre] = '\0';
+    if(r != NULL) {
+        if (isRealisateur(r) && r->film != NULL) {
+            iter = r->film;
+            nb_film = iter->size;
+            for (int i = 0; i < nb_film; i++) {
+                strcat(texte, getAuthor(iter));
+                strcat(texte, ";");
+                strcat(texte, getTitle(iter));
+                strcat(texte, ";");
+                strcat(texte, getTime(iter));
+                strcat(texte, ";");
+                strcat(texte, getType(iter));
+                strcat(texte, "\n");
+                fputs(texte, fichier);
+                iter = iter->next;
+                for (int lettre = 0; lettre < MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++) {
+                    texte[lettre] = '\0';
+                }
             }
         }
     }
