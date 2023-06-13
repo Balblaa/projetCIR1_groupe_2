@@ -163,7 +163,7 @@ function printBestAuthor(){
     let bestAuthor = readFile();
     let info = bestAuthor.split("\n");
 
-    //
+    //afficher dans le html 
 
     document.getElementById("temps_exec").innerHTML = "le temps d'exécution est de "+ info[1]/1000 +" secondes";
 
