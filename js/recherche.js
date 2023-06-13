@@ -189,6 +189,7 @@ function printError(){
 }
 
 function canUseServer(){
+    let xhr = new XMLHttpRequest();
     xhr.open("GET", "lecture.txt", false);
     xhr.send(null);
     if(xhr.status !== 404){
@@ -197,24 +198,25 @@ function canUseServer(){
     return false;
 }
 
-//code qui affiche
-let xhr = new XMLHttpRequest();
-xhr.open("GET", "ready.txt", false);
-xhr.send(null);
-if(xhr.status !== 404){
-    if(!printError()){
-        printBestAuthor();
-        printMovies();
+if(canUseServer()){
+    // le serveur est actif
+
+    //code qui affiche result.txt
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "ready.txt", false);
+    xhr.send(null);
+    if(xhr.status !== 404){
+        if(!printError()){
+            printBestAuthor();
+            printMovies();
+        }
     }
+
+    let etat_serveur = document.getElementById("etat_serveur");
+    
+
 }
+else{
+    // le serveur n'est pas actif
 
-while(true){
-    if(canUseServer()){
-        // le serveur est actif
-
-    }
-    else{
-        // le serveur n'est pas actif
-
-    }
 }
