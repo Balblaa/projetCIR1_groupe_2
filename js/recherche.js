@@ -41,7 +41,7 @@ function validateForm() {
 
     //Définir les expressions régulières
     let realisateurRegex = /^[a-zA-Z \-\']+$/;
-    let dureeRegex =/^[0-9]+$/;
+    let dureeRegex =/^[0-9]{0,3}$/;
 
     //Tester les valeurs des champs avec les expressions régulières
     let isRealisateurValid = realisateurRegex.test(realisateur);
@@ -63,7 +63,7 @@ function validateForm() {
     if (isDureeValid || duree === "") {
         dureeError.innerHTML = "";
     } else {
-        dureeError.innerHTML = "La duree doit être en minutes et uniquement composé de chiffres";
+        dureeError.innerHTML = "La duree doit être en minutes et uniquement composé de chiffres et pas plus de 3 chiffres";
     }
     if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "")){
         submitBtn.disabled = false;
