@@ -8,7 +8,7 @@ int main() {
 
     bool stop = true;
 
-    struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
+    struct Filmotheque* ft = createFilmotheque("../BD_big.txt");
     remove("../html/request.txt");
 
     while(stop) {
