@@ -22,7 +22,7 @@ struct Film{
 // crée un film avec les données en paramètre.
 struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE], char author[MAXAUTHOR], char time[4]);
 
-// ajoute un film données en paramètre a la suite d'un autre.
+// ajoute un film donné en paramètre à la suite d'un autre.
 struct Film* addFilm(struct Film* f, struct Film* newf);
 
 // Renvoie le film suivant

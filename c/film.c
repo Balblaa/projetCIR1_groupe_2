@@ -10,7 +10,7 @@ struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE],char author[MAX
     struct Film* f = malloc(sizeof (struct Film));
 
     if(f != NULL){
-        // On attribut chaque valeur donné une à une
+        // On attribue chaque valeur donnée une à une
         strcpy(f->title, title);
         strcpy(f->type, type);
         strcpy(f->author, author);
@@ -134,21 +134,24 @@ struct Film* getFilmByTime(struct Film* f, int time){
 
 // Renvoie la durée du film le plus long
 int longestFilm(struct Film* f){
-    // On récupère le temps du premier film
+
+    // On récupère le temps du film actuel
     int max = atoi(getTime(f));
     struct Film* iter = f;
 
-    // Puis on parcour tous les films next pour comparer le temps des autres films
+    // Puis on parcourt tous les films next pour comparer le temps actuel avec celui des autres films
     while (iter->next != NULL){
         iter = iter->next;
         if(atoi(getTime(iter)) > max){
             max = atoi(getTime(iter));
         }
     }
+
+    // On renvoie le max
     return max;
 }
 
-// Affiche les films la suite
+// Affiche les films à la suite (fonction pour debug)
 void printFilm(struct Film* f){
 
     // Affiche nul et termine la récursion quand f est null
@@ -165,18 +168,22 @@ void printFilm(struct Film* f){
     printf("%s;%s;%s;%s -> NULL\n", getTitle(iter), getType(iter), getAuthor(iter), getTime(iter));
 }
 
-// Suprime le premier film
+// Supprime le premier film
 struct Film* deleteFirst(struct Film* f){
+
+    // On verifie que f existe
     if (f == NULL) {
         return f;
     }
+
+    // on pointe au film suivant en libérant la mémoire de l'ancien
     struct Film* new = f->next;
     free(f);
 
     return new;
 }
 
-// Suprime un film par son titre
+// Supprime un film par son titre
 struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]){
     struct Film* iter = f;
     struct Film* suprFilm;
@@ -194,9 +201,13 @@ struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]){
     return f;
 }
 
-// Suprime tous les films
+// Supprime tous les films
 void deleteFilms(struct Film** f){
+
+    // on vérifie que le film existe
     if(*f != NULL) {
+
+        // On supprime tous les films jusqu'à ce qu'il n'y en ait plus
         struct Film *iter = *f;
         while (iter->next != NULL) {
             iter = deleteFirst(iter);

@@ -6,16 +6,23 @@
 
 // Operation de création de la filmotheque
 struct Filmotheque* createFilmotheque(char* nomfichier){
+
+    // On réserve de la place pour la structure
     struct Filmotheque* ft = malloc(sizeof(struct Filmotheque));
     if(ft != NULL){
-
+        // On initie les réalisateurs avec la base de donnée
         ft->r = buildRealisateurFromtxt(nomfichier);
 
+        // On regarde le réalisateur ayant le plus de films et on initie les différentes variable
         struct Realisateur* best = bestRealisateur(ft->r);
+        // Le nombre de film du réalisateur qui à le plus de film
         ft->maxFilm = best->film->size;
+        // Le nom du réalisateur en question
         strcpy(ft->realisateurProductif, best->film->author);
+        // la durée du plus long film
         ft->plusLongFilm = findlongestFilm(ft->r);
 
+        // On crée la liste des films rangé par chrono
         ft->listFilmByChrono = createList(ft->plusLongFilm);
         buildListFromtxt(ft->listFilmByChrono, nomfichier);
     }
@@ -44,12 +51,18 @@ struct Film* getFilmByListChrono(struct Filmotheque* ft, int time){
 
 // Permet de rajouter un Film
 void addNewFilm(struct Filmotheque* ft,char title[MAXTITLE], char type[MAXTYPE],char author[MAXAUTHOR], char* time){
+
+    // Création du film
     struct Film* f = createFilm(title, type, author, time);
+
+    // Insertion du nouveau film
     insertFilm(ft->r, f);
+
+    // Vérification si le réalisateur a été remplacé
     ft->plusLongFilm = findlongestFilm(ft->r);
 }
 
-//affiche la structure
+//affiche la structure (pour débug)
 void printFilmotheque(struct Filmotheque* ft){
     int index = 0;
     char realisateur[MAXAUTHOR];
@@ -62,7 +75,6 @@ void printFilmotheque(struct Filmotheque* ft){
 // True si un réalisateur existe
 bool isAuthorExist(struct Filmotheque* ft,char* author){
     return isRealisateurExist(ft->r, author);
-
 }
 
 // Surpimer un film avec le nom du réalisateur et le titre
@@ -76,7 +88,10 @@ void deleteFilmFromFilmotheque(struct Filmotheque* ft, char* realisateur, char* 
 
 //supprimer la structure
 void deleteFilmothque(struct Filmotheque** ft){
+
+    //On supprime la list chrono
     deleteListChrono(&(*ft)->listFilmByChrono);
+    //Puis les réalisateurs
     deleteRealisateurs(&(*ft)->r);
     free(*ft);
     *ft = NULL;
@@ -85,6 +100,7 @@ void deleteFilmothque(struct Filmotheque** ft){
 // Renvoie un fichier result.txt avec les Films cherché par auteur
 void searchByAuthor(struct Filmotheque* ft, char* realisateur){
 
+    // Vérifie
     FILE* suppr;
     suppr = fopen("../html/ready.txt", "r");
     if(suppr != NULL){

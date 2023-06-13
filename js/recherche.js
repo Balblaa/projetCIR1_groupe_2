@@ -172,6 +172,7 @@ function printBestAuthor(){
     document.getElementById("best_rea").innerHTML = texte;
 
 }
+
 //fonction qui permet de voir quand aucun film d'un certain nombre de minutes est trouvé
 function printError(){
     let file = readFile();
@@ -186,6 +187,16 @@ function printError(){
     }
     return false;
 }
+
+function canUseServer(){
+    xhr.open("GET", "lecture.txt", false);
+    xhr.send(null);
+    if(xhr.status !== 404){
+        return true;
+    }
+    return false;
+}
+
 //code qui affiche
 let xhr = new XMLHttpRequest();
 xhr.open("GET", "ready.txt", false);
@@ -194,5 +205,16 @@ if(xhr.status !== 404){
     if(!printError()){
         printBestAuthor();
         printMovies();
+    }
+}
+
+while(true){
+    if(canUseServer()){
+        // le serveur est actif
+
+    }
+    else{
+        // le serveur n'est pas actif
+
     }
 }
