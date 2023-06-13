@@ -166,3 +166,33 @@ void searchByTime(struct Filmotheque* ft, int time){
     fclose(ready);
     remove("../html/request.txt");
 }
+
+// Renvoie un fichier avec le meilleur Réalisateur
+void searchBestAuthor(struct Filmotheque* ft){
+    FILE* suppr;
+    suppr = fopen("../html/ready.txt", "r");
+    if(suppr != NULL){
+        fclose(suppr);
+        remove("../html/ready.txt");
+        remove("../html/results.txt");
+    }
+
+    FILE* fichier;
+    FILE* ready;
+    fichier = fopen("../results.txt", "w");
+
+    char texte[MAXAUTHOR+5];
+    int nb_film = ft->maxFilm;
+    char nombre[5];
+    sprintf(nombre, "%d", nb_film);
+
+    strcat(texte, ft->realisateurProductif);
+    strcat(texte, ";");
+    strcat(texte, nombre);
+
+    fputs(texte, fichier);
+
+    fclose(fichier);
+    ready = fopen("../html/ready.txt", "w");
+    fclose(ready);
+}
