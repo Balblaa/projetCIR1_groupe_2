@@ -5,10 +5,10 @@ function research(){
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
-        writeFile('research','searchByAuthor');
+        writeFile('research','searchbyauthor');
     }
     if(dureeMovie.length!==0){
-        writeFile('research','searchByTime');
+        writeFile('research','searchbytime');
     }
 }
 // fonction qui permet d'écrire dans un fichier
@@ -173,10 +173,22 @@ function printBestAuthor(){
 
 }
 
+function printError(){
+    let file = readFile();
+    let info = file.split(";");
+    if(info[0] == "errorTime"){
+        document.getElementById("temps_exec").innerHTML = "Un film avec une durée de " + info[1] + " minutes n'existe pas dans la base";
+        return true;
+    }
+    return false;
+}
+
 let xhr = new XMLHttpRequest();
 xhr.open("GET", "ready.txt", false);
 xhr.send(null);
 if(xhr.status !== 404){
-    printBestAuthor();
-    printMovies();
+    if(!printError()){
+        printBestAuthor();
+        printMovies();
+    }
 }

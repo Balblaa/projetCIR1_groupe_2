@@ -97,3 +97,15 @@ tr:hover{
     text-align: center;
     margin: 5px; 
 }
+
+#delete{
+    background-color: grey;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: 5px; 
+}

@@ -88,9 +88,9 @@ void searchByAuthor(struct Filmotheque* ft, char* realisateur){
     FILE* suppr;
     suppr = fopen("../html/ready.txt", "r");
     if(suppr != NULL){
-        fclose(suppr);
         remove("../html/ready.txt");
         remove("../html/results.txt");
+        fclose(suppr);
     }
 
     FILE* fichier;
@@ -147,44 +147,54 @@ void searchByTime(struct Filmotheque* ft, int time){
     FILE* suppr;
     suppr = fopen("../html/ready.txt", "r");
     if(suppr != NULL){
-        fclose(suppr);
         remove("../html/ready.txt");
         remove("../html/results.txt");
+        fclose(suppr);
     }
 
     FILE* fichier;
     FILE* ready;
     fichier = fopen("../html/results.txt", "w");
 
-    clock_t  begin = clock();
+    if(ft->listFilmByChrono->list[time - 1] != NULL && ft->plusLongFilm > time) {
 
-    struct Film* f = ft->listFilmByChrono->list[time-1];
+        clock_t begin = clock();
 
-    clock_t end = clock();
-    double time_spent = (double)(end - begin);
-    time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
-    char temps[10];
-    sprintf(temps, "%f", time_spent);
-    strcat(temps, "\n");
-    fputs(temps, fichier);
+        struct Film *f = ft->listFilmByChrono->list[time - 1];
 
-    char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
-    int nb_film = f->size;
+        clock_t end = clock();
+        double time_spent = (double) (end - begin);
+        time_spent = time_spent / CLOCKS_PER_SEC * 1000; //en microseconde;
+        char temps[10];
+        sprintf(temps, "%f", time_spent);
+        strcat(temps, "\n");
+        fputs(temps, fichier);
 
-    for(int i=0; i<nb_film; i++){
-        strcat(texte, getAuthor(f));
-        strcat(texte, ";");
-        strcat(texte, getTitle(f));
-        strcat(texte, ";");
-        strcat(texte, getTime(f));
-        strcat(texte, ";");
-        strcat(texte, getType(f));
-        strcat(texte, "\n");
-        fputs(texte, fichier);
-        f = f->next;
-        for(int lettre=0; lettre<MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++){
-            texte[lettre] = '\0';
+        char texte[MAXAUTHOR + MAXTITLE + MAXTYPE] = {};
+        int nb_film = f->size;
+
+        for (int i = 0; i < nb_film; i++) {
+            strcat(texte, getAuthor(f));
+            strcat(texte, ";");
+            strcat(texte, getTitle(f));
+            strcat(texte, ";");
+            strcat(texte, getTime(f));
+            strcat(texte, ";");
+            strcat(texte, getType(f));
+            strcat(texte, "\n");
+            fputs(texte, fichier);
+            f = f->next;
+            for (int lettre = 0; lettre < MAXAUTHOR + MAXTITLE + MAXTYPE; lettre++) {
+                texte[lettre] = '\0';
+            }
         }
+    }
+    else {
+        char texte[50] = "errorTime;";
+        char time_char[20];
+        sprintf(time_char, "%d", time);
+        strcat(texte, time_char);
+        fputs(texte, fichier);
     }
 
     fclose(fichier);
@@ -198,9 +208,9 @@ void searchBestAuthor(struct Filmotheque* ft){
     FILE* suppr;
     suppr = fopen("../html/ready.txt", "r");
     if(suppr != NULL){
-        fclose(suppr);
         remove("../html/ready.txt");
         remove("../html/results.txt");
+        fclose(suppr);
     }
 
     FILE* fichier;
