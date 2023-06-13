@@ -119,8 +119,9 @@ function printMovies(){
     // Division des données des films en un tableau en utilisant le saut de ligne comme séparateur
     let moviesArray = movies.split("\n");
     //afficher le temps d'exécution
-    document.getElementById("temps_exec").innerHTML = "le temps d'exécution est de "+moviesArray[0]/1000+" secondes";
-    if(moviesArray[1]!="bestAuthor"){
+    if(moviesArray[0]!="bestAuthor"){
+        document.getElementById("best_rea").innerHTML = "";
+        document.getElementById("temps_exec").innerHTML = "le temps d'exécution est de "+ moviesArray[0]/1000 +" secondes";
         // Récupération de la référence à l'élément de tableau HTML avec l'ID "moviesTable"
         let table = document.getElementById("moviesTable");
         // Parcours de chaque film dans le tableau moviesArray
@@ -129,7 +130,7 @@ function printMovies(){
             let movie = moviesArray[i].split(";");
 
             // Insertion d'une nouvelle ligne dans le tableau HTML
-            let row = table.insertRow(i+1);
+            let row = table.insertRow(i);
             
             // Insertion de deux cellules dans la nouvelle ligne pour afficher les données du film
             let cell1 = row.insertCell(0);
@@ -164,7 +165,7 @@ function printBestAuthor(){
 
     //
 
-    document.getElementById("temps_exec").innerHTML = info[0];
+    document.getElementById("temps_exec").innerHTML = "le temps d'exécution est de "+ info[1]/1000 +" secondes";
 
     let info_rea = info[2].split(";");
     let texte = "Le réalisateur qui a le plus de films dans la filmothèque est " + info_rea[0] + " avec " + info_rea[1] + " films.";
