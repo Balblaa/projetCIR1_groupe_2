@@ -35,7 +35,7 @@ function writeFile(id_form,func) {
     let count = text1.elements.length;
     let textToSave = func;
     console.log(text1);
-    for(let i = 0;i<count-1;i++){
+    for(let i = 0;i<count-2;i++){
         textToSave += ";" + text1[i].value;
     }
 
