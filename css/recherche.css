@@ -10,6 +10,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     align-items: center;
 }
 #searchbar{
@@ -33,8 +34,10 @@ body{
 #body{
     background-color: #333333;
     color: white;
-    padding: 100px;
-    text-align: center; 
+    padding-bottom: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    text-align: right; 
     margin: 10px;
 }
 .form{
@@ -125,4 +128,9 @@ h1{
 
 .colorTexte{
     color:red;
+}
+
+#etat_serveur{
+    color : green;
+    font-size: 20px;
 }
