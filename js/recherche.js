@@ -154,13 +154,11 @@ function insertRow(table, rowNumber){
 
 //fonction qui affiche les films dans un tableau
 function printMovies(){
+    document.location.reload(true);
     // Lecture des films à partir d'une source externe en utilisant la fonction readFile()
     let movies = readFile();
     // Division des données des films en un tableau en utilisant le saut de ligne comme séparateur
     let moviesArray = movies.split("\n");
-    //ajout d'un compteur
-    let compteur = document.getElementById("compteur");
-    let count = 0;
     // Récupération de la référence à l'élément de tableau HTML avec l'ID "moviesTable"
     let table = document.getElementById("moviesTable");
     // Parcours de chaque film dans le tableau moviesArray
@@ -181,19 +179,22 @@ function printMovies(){
         cell1.innerHTML = movie[0];
         cell2.innerHTML = movie[1];
         cell3.innerHTML = movie[2];
-        cell4.innerHTML = movie[3];
-        count++;    
+        cell4.innerHTML = movie[3];   
     }
     //effacer le contenu du fichier results.txt et ready.txt
     writeFile("deleteFilmotheque", "results.txt");
     writeFile("deleteFilmotheque", "ready.txt");
-    compteur.innerHTML = "Il y a " + count + " films affichés";
-
     return moviesArray;
 }
 
 function deleteFiles(){
     writeFile("research", "stopprocess");
+}
+
+function printBestAuthor(){
+    writeFile("research", "searchBestAuthor");
+    let bestAuthor = readFile();
+    return bestAuthor;
 }
 
 function insererFilm(){
