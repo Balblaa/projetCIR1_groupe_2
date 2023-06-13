@@ -7,15 +7,11 @@ function research(event){
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
         writeFile('research','searchByAuthor');
-        printMovies();
     }
     if(dureeMovie.length!==0){
         writeFile('research','searchByTime');
-        printMovies();
     }
-    if(authorName.length===0 && dureeMovie.length===0){
-        printMovies();
-    }
+    printMovies();
 }
 // fonction qui permet d'écrire dans un fichier
 function writeFile(id_form,func) {
@@ -159,8 +155,14 @@ function deleteFiles(){
 function printBestAuthor(){
     writeFile("research", "searchbestauthor");
     let bestAuthor = readFile();
-    bestAuthor.innerHTML = bestAuthor;
-    return bestAuthor;
+    let info = bestAuthor.split("\n");
+
+    document.getElementById("temps_exec").innerHTML = info[0];
+
+    let info_rea = info[1].split(";");
+    let texte = "Le réalisateur qui a le plus de films dans la filmothèque est " + info_rea[0] + " avec " + info_rea[1] + " films.";
+    document.getElementById("ouai").innerHTML = texte;
+
 }
 
 function insererFilm(){
