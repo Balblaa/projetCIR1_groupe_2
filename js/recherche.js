@@ -3,8 +3,6 @@ function research(event){
     //on récupère les éléments du formulaire
     let authorName=document.getElementById("realisateur").value;
     let dureeMovie=document.getElementById("duree").value;
-    let nameMovie=document.getElementById("titre").value;
-    let categorieMovie=document.getElementById("genre").value;
     //si quelque chose est rempli dans le formulaire
     if(authorName.length!==0){
         //on exécute la fonction de recherche avec le paramètre entrée.
@@ -15,15 +13,7 @@ function research(event){
         writeFile('research','searchByTime');
         printMovies();
     }
-    if(nameMovie.length!==0){
-        writeFile('research','searchByTitle');
-        printMovies();
-    }
-    if(categorieMovie.length!==0){
-        writeFile('research','searchByType');
-        printMovies();
-    }
-    if(authorName.length===0 && dureeMovie.length===0 && nameMovie.length===0 && categorieMovie.length===0 ){
+    if(authorName.length===0 && dureeMovie.length===0){
         printMovies();
     }
 }
@@ -35,7 +25,7 @@ function writeFile(id_form,func) {
     let count = text1.elements.length;
     let textToSave = func;
     console.log(text1);
-    for(let i = 0;i<count-2;i++){
+    for(let i = 0;i<count-1;i++){
         textToSave += ";" + text1[i].value;
     }
 
@@ -54,29 +44,19 @@ function validateForm() {
     //Récupérer les valeurs des champs
     let realisateur = document.getElementById("realisateur").value;
     let duree = document.getElementById("duree").value;
-    let film = document.getElementById("titre").value;
-    let categorie = document.getElementById("genre").value;
 
     //Définir les expressions régulières
     let realisateurRegex = /^[a-zA-Z \-\']+$/;
     let dureeRegex =/^[0-9]+$/;
-    let filmRegex = /^[a-zA-Z \-\']+$/;
-    let categorieRegex = /^[a-zA-Z \-\']+$/;
 
     //Tester les valeurs des champs avec les expressions régulières
     let isRealisateurValid = realisateurRegex.test(realisateur);
     let isDureeValid = dureeRegex.test(duree);
-    let isFilmValid = filmRegex.test(film);
-    let isCategorieValid = categorieRegex.test(categorie);
-    //console.log(isRealisateurValid, isDureeValid, isMessageValid);
-    //console.log(realisateur, duree, message);
 
     //Récupérer les éléments d'erreur
     let submitBtn = document.getElementById("submitBtn");
     let realisateurError = document.getElementById("realisateurError");
     let dureeError = document.getElementById("dureeError");
-    let filmError = document.getElementById("titreError");
-    let categorieError = document.getElementById("genreError");
 
 
     //Afficher les messages d'erreur 
@@ -91,23 +71,11 @@ function validateForm() {
     } else {
         dureeError.innerHTML = "La duree doit être en minutes et uniquement composé de chiffres";
     }
-    if (isFilmValid || film === "") {
-        filmError.innerHTML = "";
-    } else {
-        filmError.innerHTML = "Le film doit contenir uniquement des lettres et pas d'accents";
-    }
-    if (isCategorieValid || categorie === "") {
-        categorieError.innerHTML = "";
-    } else {
-        categorieError.innerHTML = "Le genre doit contenir uniquement des lettres et pas d'accents";
-    }
-
-    if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "") && (isFilmValid|| film === "") && (isCategorieValid|| categorie === "")) {
+    if ((isRealisateurValid|| realisateur === "") && (isDureeValid|| duree === "")){
         submitBtn.disabled = false;
         submitBtn.classList.remove("btn-notvalid");
     } else {
         submitBtn.disabled = true;
-        //Edit css for the button to be gray
         submitBtn.classList.add("btn-notvalid");
     }
 }
@@ -115,8 +83,6 @@ function validateForm() {
 // appeler la fonction validateForm à chaque fois qu'un champ est modifié
 document.getElementById("realisateur").addEventListener("input", validateForm);
 document.getElementById("duree").addEventListener("input", validateForm);
-document.getElementById("titre").addEventListener("input", validateForm);
-document.getElementById("genre").addEventListener("input", validateForm);
 
 //Appeler la fonction validateForm au chargement de la page
 validateForm();
@@ -179,7 +145,7 @@ function printMovies(){
         cell1.innerHTML = movie[0];
         cell2.innerHTML = movie[1];
         cell3.innerHTML = movie[2];
-        cell4.innerHTML = movie[3];   
+        cell4.innerHTML = movie[3]; 
     }
     //effacer le contenu du fichier results.txt et ready.txt
     writeFile("deleteFilmotheque", "results.txt");
@@ -194,6 +160,7 @@ function deleteFiles(){
 function printBestAuthor(){
     writeFile("research", "searchBestAuthor");
     let bestAuthor = readFile();
+    bestAuthor.innerHTML = bestAuthor;
     return bestAuthor;
 }
 
