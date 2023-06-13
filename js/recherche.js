@@ -163,7 +163,7 @@ function printBestAuthor(){
     let bestAuthor = readFile();
     let info = bestAuthor.split("\n");
 
-    //afficher dans le html 
+    //afficher dans le html le temps d'exécution et le meilleur réalisateur
 
     document.getElementById("temps_exec").innerHTML = "le temps d'exécution est de "+ info[1]/1000 +" secondes";
 
@@ -172,7 +172,7 @@ function printBestAuthor(){
     document.getElementById("best_rea").innerHTML = texte;
 
 }
-
+//fonction qui permet de voir quand aucun film d'un certain nombre de minutes est trouvé
 function printError(){
     let file = readFile();
     let info = file.split(";");
@@ -182,7 +182,7 @@ function printError(){
     }
     return false;
 }
-
+//code qui affiche
 let xhr = new XMLHttpRequest();
 xhr.open("GET", "ready.txt", false);
 xhr.send(null);
