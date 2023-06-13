@@ -154,7 +154,9 @@ function printMovies(){
 }
 
 function deleteFiles(){
-    writeFile("research", "stopprocess");
+    if(canUseServer()){
+        writeFile("research", "stopprocess");
+    }
 }
 
 function requestBestAuthor(){

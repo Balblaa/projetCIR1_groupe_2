@@ -40,6 +40,9 @@ char* getType(struct Film* f);
 // Renvoie le temps du film
 char* getTime(struct Film* f);
 
+// Renvoie la size du film
+int getsize(struct Film* f);
+
 // Renvoie le premier film avec le titre recherché
 struct Film* getFilmByTitle(struct Film* f, char* title);
 

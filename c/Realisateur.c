@@ -2,11 +2,15 @@
 
 //  Créer le premier noeud
 struct Realisateur* createEmptyRealisateur(){
+
+    // On réserve de la mémoire pour la structure
     struct Realisateur* r = malloc(sizeof (struct Realisateur));
     if(r != NULL){
+
+        // On initie les variables
         r->isRealisateur = false;
         for(int i=0; i<NBLETTRE; i++){
-            r->lettre[i] = NULL;
+            r->lettre[i] = NULL; // Toute les case du tableau pointe à null
         }
         r->film = NULL;
         r->longestFilm = 0;
@@ -14,15 +18,17 @@ struct Realisateur* createEmptyRealisateur(){
     return r;
 }
 
-// Renvoie la liste de tout les enfants de réalisateur
+// Renvoie la liste de tous les enfants de réalisateur
 struct Realisateur** getChidren(struct Realisateur* r){
     return r->lettre;
 }
 
 // Renvoie si un réalisateur est vide
 bool isRealisateurEmpty(struct Realisateur* r){
+
+    //Regarde si chaque élément du tableau de réalisateur est vide
     for(int i = 0; i<NBLETTRE; i++){
-        if(getChidren(r)[i] != NULL){
+        if(getChidren(r)[i] != NULL){ // Si un seul ne l'ai pas renvoie false
             return false;
         }
     }
@@ -37,20 +43,25 @@ struct Film* getFilm(struct Realisateur* r){
 // Renvoie le la liste de film d'un realisateur
 struct Realisateur* findRealisateur(struct Realisateur* r, char* realisateur){
     int n = strlen(realisateur);
+
+    // On regarde lettre par lettre pour tse déplace à l'intérieur du node trie
     for(int i=0; i<n; i++){
 
-        // 44 représente le caractère "'"
-        if(realisateur[i] - '\'' == 0 && r->lettre[NBLETTRE-3] != NULL){
-            r = r->lettre[NBLETTRE-3];
+        // Il existe trois cas particulié
+        // '
+        if(realisateur[i] - '\'' == 0 && getChidren(r)[NBLETTRE-3] != NULL){
+            r = getChidren(r)[NBLETTRE-3];
         }
-        else if(realisateur[i]-' ' == 0 && r->lettre[NBLETTRE-2] != NULL){
-            r = r->lettre[NBLETTRE-2];
+        // un espace
+        else if(realisateur[i]-' ' == 0 && getChidren(r)[NBLETTRE-2] != NULL){
+            r = getChidren(r)[NBLETTRE-2];
         }
-        else if(realisateur[i]-'-' == 0 && r->lettre[NBLETTRE-1] != NULL){
-            r = r->lettre[NBLETTRE-1];
+        // -
+        else if(realisateur[i]-'-' == 0 && getChidren(r)[NBLETTRE-1] != NULL){
+            r = getChidren(r)[NBLETTRE-1];
         }
-        else if(r->lettre[realisateur[i]-'a'] != NULL){
-            r = r->lettre[realisateur[i]-'a'];
+        else if(getChidren(r)[realisateur[i]-'a'] != NULL){
+            r = getChidren(r)[realisateur[i]-'a'];
             }
         else {
             return NULL;
@@ -73,14 +84,14 @@ struct Realisateur* insertRealisateur(struct Realisateur* r, char* realisateur){
         if (realisateur[i]- '\'' == 0){
 
             // On vérifie si l'emplacement existe
-            if(r->lettre[NBLETTRE-3] != NULL){
+            if(getChidren(r)[NBLETTRE-3] != NULL){
                 // Si oui, on se déplace dans la nouvelle "lettre" pour trouvé notre destination
-                r = r->lettre[NBLETTRE-3];
+                r = getChidren(r)[NBLETTRE-3];
             }
             else {
                 // Si non, on la créer puis on continue de la même manière
                 r->lettre[NBLETTRE-3] = createEmptyRealisateur();
-                r = r->lettre[NBLETTRE-3];
+                r = getChidren(r)[NBLETTRE-3];
             }
         }
         // On traite d'abord le caractère spécial: " "
@@ -89,26 +100,26 @@ struct Realisateur* insertRealisateur(struct Realisateur* r, char* realisateur){
             // On vérifie si l'emplacement existe
             if(r->lettre[NBLETTRE-2] != NULL){
                 // Si oui, on se déplace dans la nouvelle "lettre" pour trouvé notre destination
-                r = r->lettre[NBLETTRE-2];
+                r = getChidren(r)[NBLETTRE-2];
             }
             else {
                 // Si non, on la créer puis on continue de la même manière
                 r->lettre[NBLETTRE-2] = createEmptyRealisateur();
-                r = r->lettre[NBLETTRE-2];
+                r = getChidren(r)[NBLETTRE-2];
             }
         }
         // Si se n'est pas un " " alors c'est peut être un "-"
         else if (realisateur[i]-'-' == 0){
 
             // On vérifie si l'emplacement existe
-            if(r->lettre[NBLETTRE-1] != NULL){
+            if(getChidren(r)[NBLETTRE-1] != NULL){
                 // Si oui, on se déplace dans la nouvelle "lettre" pour trouvé notre destination
-                r = r->lettre[NBLETTRE-1];
+                r = getChidren(r)[NBLETTRE-1];
             }
             else {
                 // Si non, on la créer puis on continue de la même manière
                 r->lettre[NBLETTRE-1] = createEmptyRealisateur();
-                r = r->lettre[NBLETTRE-1];
+                r = getChidren(r)[NBLETTRE-1];
             }
         }
         // Si se n'est pas un "-" alors c'est une lettre
@@ -116,11 +127,11 @@ struct Realisateur* insertRealisateur(struct Realisateur* r, char* realisateur){
 
             // Et l'on fera la même méthode que précédemment
             if(r->lettre[realisateur[i]-'a'] != NULL){
-                r = r->lettre[realisateur[i]-'a'];
+                r = getChidren(r)[realisateur[i]-'a'];
             }
             else {
                 r->lettre[realisateur[i]-'a'] = createEmptyRealisateur();
-                r = r->lettre[realisateur[i]-'a'];
+                r = getChidren(r)[realisateur[i]-'a'];
             }
         }
     }
@@ -132,7 +143,12 @@ struct Realisateur* insertRealisateur(struct Realisateur* r, char* realisateur){
 
 // rajoute un film au réalisateur donné
 void insertFilm(struct Realisateur* r, struct Film* f){
+    // On récupère le réalisateur du film
     char* realisateur = getAuthor(f);
+
+    /* On regarde si le réalisateur existe déjà
+     * auquel cas on l'ajoute a la suite des autres film
+     * ou alors, on crée un nouveau réalisateur*/
     if(isRealisateurExist(r, realisateur)){
         r = findRealisateur(r, realisateur);
         r->film = addFilm(r->film, f);
@@ -157,41 +173,52 @@ bool isRealisateur(struct Realisateur* r){
 // Vérifie qu'un réalisateur existe
 bool isRealisateurExist(struct Realisateur* r,char* realisateur){
     int n = strlen(realisateur);
+
+    // pour chaque caractère de réalisateur, on se déplace dans le NodeTrie
     for(int i=0; i<n; i++){
+        // Trois cas particuliers à traiter
+        //  '
         if(realisateur[i]- '\'' == 0){
-            if(r->lettre[NBLETTRE-3] == NULL){
+            if(getChidren(r)[NBLETTRE-3] == NULL){
                 return false;
             }
-            r = r->lettre[NBLETTRE-3];
+            r = getChidren(r)[NBLETTRE-3];
         }
+        // un espace
         else if(realisateur[i]-' ' == 0){
-            if(r->lettre[NBLETTRE-2] == NULL){
+            if(getChidren(r)[NBLETTRE-2] == NULL){
                 return false;
             }
-            r = r->lettre[NBLETTRE-2];
+            r = getChidren(r)[NBLETTRE-2];
         }
+        // -
         else if(realisateur[i]-'-' == 0){
-            if(r->lettre[NBLETTRE-1] == NULL){
+            if(getChidren(r)[NBLETTRE-1] == NULL){
                 return false;
             }
-            r = r->lettre[NBLETTRE-1];
+            r = getChidren(r)[NBLETTRE-1];
         }
+        // Puis toute les lettres
         else {
-            if (r->lettre[realisateur[i] - 'a'] == NULL) {
+            if (getChidren(r)[realisateur[i] - 'a'] == NULL) {
                 return false;
             }
-            r = r->lettre[realisateur[i] - 'a'];
+            r = getChidren(r)[realisateur[i] - 'a'];
         }
     }
-    return r->isRealisateur;
+    // On renvoie si la dernière structure Réalisateur est un réalisateur
+    return isRealisateur(r);
 }
 
-// Affiche les réalisateurs
+// Affiche les réalisateurs (pour debug)
 void displayRealisateurs(struct Realisateur* r, char* realisateur, int index){
+
+    // Si le Réalisateur est un réalisateur alors on l'affiche
     if(isRealisateur(r)){
         realisateur[index] = '\0';
         printf("%s\n", realisateur);
     }
+    // On ajoute un caractère à notre réalisateur puis on explore toutes les autres destinations possibles
     for(int i=0; i<NBLETTRE; i++){
         if(getChidren(r)[i] != NULL){
             if(i == NBLETTRE-3){
@@ -213,19 +240,24 @@ void displayRealisateurs(struct Realisateur* r, char* realisateur, int index){
 
 // suprime tous les réalisateurs
 void deleteRealisateurs(struct Realisateur** r){
+
+    // Si c'est un réalisateur, on supprime les films qu'il contient
     if(isRealisateur(*r)){
         deleteFilms(&(*r)->film);
     }
+    // S'il est dernier de la liste, on libère la mémoire
     if(isRealisateurEmpty(*r)){
         free(*r);
         *r = NULL;
     }
+    // Sinon, on applique les conditions du dessus à tous les réalisateurs suivant
     else {
         for (int i = 0; i < NBLETTRE; i++) {
             if (getChidren(*r)[i] != NULL) {
                 deleteRealisateurs(&(*r)->lettre[i]);
             }
         }
+        // Puis après on libère la mémoire du réalisateur
         free(*r);
         *r = NULL;
     }
@@ -234,11 +266,14 @@ void deleteRealisateurs(struct Realisateur** r){
 // Construie un arbre avec les réalisateurs ainsi que les films à partir d'un txt
 struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
 
+    // Lecture de la base de donné
     FILE* fichier;
     fichier = fopen(nomfichier, "r");
 
+    // Création d'un réalisateur souche
     struct Realisateur* r = createEmptyRealisateur();
 
+    // Initialisation des variable
     char realisateur[MAXAUTHOR];
     char title[MAXTITLE];
     char type[MAXTYPE];
@@ -247,6 +282,11 @@ struct Realisateur* buildRealisateurFromtxt(char* nomfichier){
     int index = 0;
 
     while(!feof(fichier)) {
+
+        /* Pour chaque lettre de la base de donnée remplit la catégorie correspondante,
+         * on change de catégorie lorsqu'un caractère est égal à ";",
+         * lorsqu'il y a "\n", cela signifie que l'on change de ligne dans le txt :
+         * alors ajoute le film au Réalisateur et on recommence*/
         char c = fgetc(fichier);
         if (c == '\n') {
             type[index] = '\0';
@@ -310,19 +350,24 @@ struct Realisateur* bestRealisateur(struct Realisateur* r){
     int max = 0;
     struct Realisateur* best = NULL;
 
+    // si r est un réalisateur, alors on initie max et best avec ses valeurs
     if(isRealisateur(r)){
-        max = r->film->size;
+        max = getsize(getFilm(r));
         best = r;
     }
+
+    // On regarde pour chaque enfant du réalisateur lequel est le meilleur réalisateur
     for(int i=0; i<NBLETTRE; i++){
-        if(r->lettre[i] != NULL){
+        if(getChidren(r)[i] != NULL){
             struct Realisateur* temp = bestRealisateur(r->lettre[i]);
-            if(temp->film->size > max){
-                max = temp->film->size;
+            if(getsize(getFilm(temp)) > max){
+                max = getsize(getFilm(temp));
                 best = temp;
             }
         }
     }
+
+    // On renvoie le meilleur réalisateur
     return best;
 }
 
@@ -330,9 +375,12 @@ struct Realisateur* bestRealisateur(struct Realisateur* r){
 int findlongestFilm(struct Realisateur* r){
     int max = 0;
 
+    // si r est un réalisateur, alors on initie max avec sa valeur
     if(isRealisateur(r)){
         max = longestFilm(r->film);
     }
+
+    // On regarde pour chaque enfant du réalisateur lequel a le plus long film
     for(int i=0; i<NBLETTRE; i++){
         if(r->lettre[i] != NULL){
             int newTime = findlongestFilm(r->lettre[i]);

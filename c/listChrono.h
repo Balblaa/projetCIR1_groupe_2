@@ -18,7 +18,7 @@ void buildListFromtxt(struct ListChrono* listFilm, char* nomfichier);
 void addFilmToList(struct ListChrono* listFilm, struct Film* f);
 
 // Suprime un film à partir de son temps et de son titre
-void deleteFilmFromListChrono(struct ListChrono* listFilm, int time, char* title);
+void deleteFilmByTitleFromListChrono(struct ListChrono* listFilm, int time, char* title);
 
 // Suprime une liste chrono
 void deleteListChrono(struct ListChrono** listFilm);

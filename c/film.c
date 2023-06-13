@@ -23,7 +23,7 @@ struct Film* createFilm(char title[MAXTITLE], char type[MAXTYPE],char author[MAX
     return f;
 }
 
-// ajoute un film donné en paramètre à la suite.
+// ajoute un film donné en paramètre à la suite. (non utilisé)
 struct Film* addFilm(struct Film* f, struct Film* newf){
 
     // Si f n'est pas un film
@@ -64,7 +64,12 @@ char* getTime(struct Film* f){
     return f->time;
 }
 
-// Renvoie le premier film avec le titre recherché
+// Renvoie la size du film
+int getsize(struct Film* f){
+    return f->size;
+}
+
+// Renvoie le premier film avec le titre recherché (non utilisé)
 struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]){
 
     // On vérifie que le film ne soit pas nul
@@ -88,7 +93,7 @@ struct Film* getFilmByTitle(struct Film* f, char title[MAXTITLE]){
     return NULL;
 }
 
-// Renvoie le premier film avec le type recherché
+// Renvoie le premier film avec le type recherché (non utilisé)
 struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
 
     // On vérifie que le film ne soit pas nul
@@ -110,7 +115,7 @@ struct Film* getFilmByType(struct Film* f, char type[MAXTYPE]){
     return NULL;
 }
 
-// Renvoie le premier film avec la durée recherché
+// Renvoie le premier film avec la durée recherché (non utilisé)
 struct Film* getFilmByTime(struct Film* f, int time){
 
     // On regarde si le premier film correspond à notre recherche
@@ -183,7 +188,7 @@ struct Film* deleteFirst(struct Film* f){
     return new;
 }
 
-// Supprime un film par son titre
+// Supprime un film par son titre (non utilisé)
 struct Film* deleteFilmByTitle(struct Film* f, char title[MAXTITLE]){
     struct Film* iter = f;
     struct Film* suprFilm;
