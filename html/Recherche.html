@@ -23,6 +23,7 @@
     <body>
         <div id="body">
          <div id="column">
+            <input type="submit" onclick="deleteFiles()" value="Arreter le server" id="delete">
             <h1>Faites votre recherche</h1>
             <div id="search">
                 <form id="research">
@@ -45,12 +46,11 @@
                     </div>
                 </form>
                 <form id="buttonsForm">
-                    <input type="submit" onclick="deleteFiles()" value="supprimer" class="button" id="delete">
                     <input type="submit" onclick="requestBestAuthor()" value="BestAuthor" class="button" id="bestAuthor">
                 </form>
             </div>
-            <label id="best_rea"></label>
-            <label id="temps_exec"></label>
+            <label id="best_rea" class="texte"></label>
+            <label id="temps_exec" class="texte"></label>
             <div>
                 <table id="moviesTable">
                     <tr>

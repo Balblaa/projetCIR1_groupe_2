@@ -50,16 +50,50 @@ body{
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
-    width: 100px;
-    height: 40px;
+    width: auto;
+    height: auto;
     text-align: center;
-    margin-bottom: 20px; 
+    margin: 5px; 
+    box-shadow: 5px 5px 12px 0px darkred;
+}
+.button:hover{
+    background-color: orange;
+    color: white;
+    cursor: pointer;
 }
 
 .btn-notvalid{
     background-color: #7d7d7d;
 }
-table, th, td { 
-    border: 1px solid black;
-    border-color: white;
+
+.texte{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+}
+table{
+    padding: 100px;
+}
+
+td{
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+tr:hover{
+    background-color: #E40C14;
+    color: white;
+    cursor: pointer;
+}
+
+#delete{
+    background-color: grey;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: 5px; 
 }
