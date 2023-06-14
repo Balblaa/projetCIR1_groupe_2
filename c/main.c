@@ -8,7 +8,7 @@ int main() {
 
     bool stop = true;
 
-    struct Filmotheque* ft = createFilmotheque("../BD_big.txt");
+    struct Filmotheque* ft = createFilmotheque("../BD_medium.txt");
 
     // Un fichier pour voir si le serveur est en mode lecture
     remove("../html/request.txt");
