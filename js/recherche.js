@@ -153,12 +153,14 @@ function printMovies(){
     }
 }
 
+// Envoie une requête pour arrêter le serveur et libérer la mémoire
 function deleteFiles(){
     if(canUseServer()){
         writeFile("research", "stopprocess");
     }
 }
 
+// Envoie une requête pour cherché par autheur
 function requestBestAuthor(){
     if(canUseServer()){
         writeFile("research", "searchbestauthor");
@@ -183,6 +185,7 @@ function printBestAuthor(){
 function printError(){
     let file = readFile();
     let info = file.split(";");
+    // Si jamais il y a une erreur renvois les informations sur la page html en conséquence
     if(info[0] == "errorTime"){
         document.getElementById("temps_exec").innerHTML = "Un film avec une durée de " + info[1] + " minutes n'existe pas dans la base";
         return true;
@@ -195,6 +198,7 @@ function printError(){
 }
 
 function canUseServer(){
+    // vérifie qu'il existe un fichier lecture.txt
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "lecture.txt", false);
     xhr.send(null);
@@ -219,6 +223,7 @@ function miseAJour(){
             }
         }
 
+        // Bouton affiche serveur allumé
         let etat_serveur = document.getElementById("etat_serveur");
         etat_serveur.style.color="green";
         etat_serveur.innerHTML= "Allumé";
@@ -227,6 +232,7 @@ function miseAJour(){
     else{
         // le serveur n'est pas actif
 
+        // Bouton affiche serveur éteint
         let etat_serveur = document.getElementById("etat_serveur");
         etat_serveur.style.color="red";
         etat_serveur.innerHTML= "Eteint";
