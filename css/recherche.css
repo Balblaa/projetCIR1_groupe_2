@@ -78,6 +78,9 @@ body{
 .btn-notvalid{
     background-color: #7d7d7d;
 }
+.btn-notvalid:hover{
+    background-color: #7d7d7d;
+}
 
 .texte{
     color: white;
